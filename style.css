@@ -48,9 +48,14 @@ body {
   gap: 18px;
 }
 @media (min-width: 1024px) {
-  .panes {
-    grid-template-columns: 1fr; /* ✅ PC도 세로 한 줄 */
-    gap: 80px; /* 카드 간 간격 넉넉하게 */
+  #app {
+    scroll-snap-type: none; /* PC에서는 스냅 해제 */
+  }
+
+  .pane {
+    min-height: auto; /* ✅ PC에서는 자동 높이 */
+    padding: 120px 60px; /* 여백은 넉넉하게 */
+    display: block; /* flex → block으로 바꿔서 내용 자연스럽게 흐르게 */
   }
 }
 
