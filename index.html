@@ -1,148 +1,175 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>zero0sik | Portfolio</title>
-    <meta name="description" content="백엔드 개발자 윤영식(Zero0Sik) 포트폴리오" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <style>
-      /* === THEME (from attached palette) ===
-         - Ink/Navy: #07111F (bg)
-         - Paper:     #F3F3F4 (light fg)
-         - Peach:     #EBBC95 (soft accent)
-         - Orange:    #FC4E00 (primary accent)
-      */
-      :root {
-        --bg: #07111F;          /* page background */
-        --fg: #F3F3F4;          /* base text */
-        --muted:#B7BCC3;        /* secondary text (derived from #F3F3F4) */
-        --accent:#FC4E00;       /* links, primary accent */
-        --accent-soft:#EBBC95;  /* chips, subtle accents */
-        --card:#0B1626;         /* card bg slightly above page */
-        --line:#152033;         /* borders */
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>zero0sik | Portfolio</title>
+  <meta name="description" content="백엔드 개발자 윤영식(Zero0Sik) 포트폴리오" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    /* === THEME — pulled from the attached palette SVG ===
+       Ink/Navy  #07111f
+       Paper     #f3f3f4
+       Peach     #ebbc95
+       Orange    #fc4e00
+    */
+    :root{
+      --ink:#07111f;
+      --paper:#f3f3f4;
+      --peach:#ebbc95;
+      --orange:#fc4e00;
 
-      * { box-sizing: border-box }
-      html, body { height: 100% }
+      --bg: var(--ink);
+      --fg: var(--paper);
+      --muted: color-mix(in srgb, var(--paper) 58%, var(--ink));
+      --card: color-mix(in srgb, var(--ink) 86%, #0e1b2a);
+      --line: color-mix(in srgb, var(--paper) 8%, var(--ink));
+      --glow-peach: color-mix(in srgb, var(--peach) 18%, transparent);
+      --glow-orange: color-mix(in srgb, var(--orange) 10%, transparent);
+      --radius: 14px;
+      --shadow: 0 12px 36px rgba(0,0,0,.35);
+    }
 
-      body {
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
-        background:
-          radial-gradient(1100px 700px at 75% -10%, color-mix(in srgb, var(--accent-soft) 16%, transparent) 0%, transparent 60%),
-          radial-gradient(900px 600px at 10% -20%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 70%),
-          var(--bg);
-        color: var(--fg);
-        line-height: 1.6;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-      }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      color:var(--fg);
+      background:
+        radial-gradient(1200px 800px at 85% -10%, var(--glow-peach) 0%, transparent 60%),
+        radial-gradient(900px 600px at 10% -20%, var(--glow-orange) 0%, transparent 65%),
+        var(--bg);
+      line-height:1.65;
+      display:grid;
+      place-items:center;
+      padding:28px;
+    }
 
-      main {
-        width: 100%;
-        max-width: 720px;
-        background: color-mix(in srgb, var(--card) 92%, transparent);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 28px 24px;
-        box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      }
+    main{
+      width:100%;
+      max-width:760px;
+      background: linear-gradient(180deg,
+                  color-mix(in srgb, var(--card) 95%, transparent) 0%,
+                  color-mix(in srgb, var(--card) 92%, transparent) 100%);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px 24px;
+    }
 
-      h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 36px); letter-spacing: .3px }
-      .sub { color: var(--muted); margin: 0 0 18px; font-size: 14px }
+    header{
+      display:flex; flex-direction:column; gap:10px; margin-bottom:14px;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(30px, 4.4vw, 40px);
+      letter-spacing:.2px;
+      line-height:1.2;
+      display:flex; align-items:center; gap:12px;
+    }
 
-      .grid { display: grid; gap: 14px; margin-top: 18px }
+    /* Peach tag to make the palette feel right away */
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid color-mix(in srgb, var(--peach) 60%, var(--line));
+      background: color-mix(in srgb, var(--peach) 22%, var(--card));
+      color: var(--fg);
+      font-size:12px; font-weight:600;
+    }
 
-      .card {
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 14px 16px;
-        background: var(--card);
-      }
+    .sub{color:var(--muted); margin:0}
 
-      a { color: var(--accent); text-decoration: none }
-      a:hover { text-decoration: underline }
+    .grid{display:grid; gap:16px; margin-top:18px}
+    .card{
+      background: color-mix(in srgb, var(--card) 96%, transparent);
+      border:1px solid var(--line);
+      border-radius: calc(var(--radius) - 2px);
+      padding:16px 18px;
+    }
 
-      footer { margin-top: 20px; color: var(--muted); font-size: 12px }
+    /* Headings in peach tone for the “vibe” */
+    .card > strong{
+      display:block;
+      color: var(--peach);
+      font-weight:700;
+      margin-bottom:8px;
+      letter-spacing:.2px;
+    }
 
-      code {
-        background: #0b0f1a;
-        border: 1px solid var(--line);
-        padding: 2px 6px;
-        border-radius: 6px
-      }
+    a{
+      color: var(--peach);
+      text-underline-offset: 3px;
+      text-decoration-color: color-mix(in srgb, var(--peach) 30%, transparent);
+      transition: color .15s ease, text-decoration-color .15s ease, background .15s ease;
+      border-radius:6px; padding:2px 4px;
+    }
+    a:hover{
+      color: var(--orange);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--orange) 50%, transparent);
+      background: color-mix(in srgb, var(--orange) 10%, transparent);
+    }
 
-      /* Accent chips / badges */
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid color-mix(in srgb, var(--accent-soft) 35%, var(--line));
-        background: color-mix(in srgb, var(--accent-soft) 18%, var(--card));
-        color: var(--fg);
-        font-size: 12px;
-      }
+    /* Custom bullets in peach/orange */
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+    li::marker{color: var(--peach)}
 
-      /* Button (for future use) */
-      .btn {
-        display: inline-block;
-        padding: 10px 14px;
-        border-radius: 10px;
-        border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
-        background: linear-gradient(180deg,
-                    color-mix(in srgb, var(--accent) 24%, #1a1f2c) 0%,
-                    color-mix(in srgb, var(--accent) 12%, #0f1422) 100%);
-        color: var(--fg);
-        text-decoration: none;
-        font-weight: 600;
-        transition: transform .04s ease;
-      }
-      .btn:active { transform: translateY(1px) }
-    </style>
-  </head>
-  <body>
-    <main>
-      <header>
-        <h1>Zero0Sik <span class="chip">Java · Spring Boot · SQL</span></h1>
-        <p class="sub">윤영식 | Backend Developer — 트랜잭션 안정성과 운영 효율 중심</p>
-      </header>
+    footer{margin-top:22px; color:var(--muted); font-size:12px}
 
-      <section class="grid">
-        <div class="card">
-          <strong>소개</strong>
-          <p>트랜잭션 안정성과 운영 효율을 중시하는 백엔드 개발자입니다. Spring Boot, Batch, JPA/QueryDSL, RDBMS에 강점이 있습니다.</p>
-        </div>
+    /* Small accent rule */
+    .rule{
+      height:1px; width:100%;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--peach) 40%, transparent), transparent);
+      margin:10px 0 2px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>
+        Zero0Sik
+        <span class="tag">Java · Spring Boot · SQL</span>
+      </h1>
+      <p class="sub">윤영식 | Backend Developer — 트랜잭션 안정성과 운영 효율 중심</p>
+      <div class="rule"></div>
+    </header>
 
-        <div class="card">
-          <strong>프로젝트</strong>
-          <ul>
-            <li><a href="#" title="프로젝트 링크">프로젝트 A</a> — 간단 설명 한 줄</li>
-            <li><a href="#" title="프로젝트 링크">프로젝트 B</a> — 간단 설명 한 줄</li>
-          </ul>
-        </div>
+    <section class="grid">
+      <div class="card">
+        <strong>소개</strong>
+        <p>트랜잭션 안정성과 운영 효율을 중시하는 백엔드 개발자입니다. Spring Boot, Batch, JPA/QueryDSL, RDBMS에 강점이 있습니다.</p>
+      </div>
 
-        <div class="card">
-          <strong>링크</strong>
-          <p>
-            <a href="https://github.com/zero0sik" target="_blank" rel="noreferrer">GitHub</a> ·
-            <a href="mailto:yoon0sik2@gmail.com">Email</a> ·
-            <a href="#" target="_blank" rel="noreferrer">Resume</a>
-          </p>
-        </div>
-      </section>
+      <div class="card">
+        <strong>프로젝트</strong>
+        <ul>
+          <li><a href="#" title="프로젝트 링크">프로젝트 A</a> — 간단 설명 한 줄</li>
+          <li><a href="#" title="프로젝트 링크">프로젝트 B</a> — 간단 설명 한 줄</li>
+        </ul>
+      </div>
 
-      <footer>
-        <span>© <span id="y"></span> zero0sik. Built on GitHub Pages.</span>
-      </footer>
-    </main>
+      <div class="card">
+        <strong>링크</strong>
+        <p>
+          <a href="https://github.com/zero0sik" target="_blank" rel="noreferrer">GitHub</a> ·
+          <a href="mailto:yoon0sik2@gmail.com">Email</a> ·
+          <a href="#" target="_blank" rel="noreferrer">Resume</a>
+        </p>
+      </div>
+    </section>
 
-    <script>
-      // 연도 자동 갱신
-      document.getElementById('y').textContent = new Date().getFullYear();
-    </script>
-  </body>
+    <footer>
+      © <span id="y"></span> zero0sik. Built on GitHub Pages.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
