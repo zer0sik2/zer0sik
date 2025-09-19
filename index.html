@@ -137,17 +137,46 @@
   </style>
 </head>
 <body>
-<main>
-  <header>
-    <h1>Zero0Sik <span class="tag">Java · Spring Boot · SQL</span></h1>
-    <div class="ring"></div>
-    <p class="sub">윤영식 | Backend Developer — 트랜잭션 안정성과 운영 효율 중심</p>
-  </header>
-
-  <!-- 기본정보 -->
-  <section class="grid" aria-labelledby="basic-info-title" itemscope itemtype="https://schema.org/Person">
-    <div class="card">
-      <strong id="basic-info-title">기본정보</strong>
+<main id="app"
+  style="
+    /* 페이지 중앙 정렬 + 모바일 세로 스냅 */
+    width:100%;
+    max-width:820px;
+    margin-inline:auto;
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(17,24,39,.08);
+    background:linear-gradient(180deg,#fff 0%,#fefefe 100%);
+    /* 카드/섹션 단위 스냅 스크롤 */
+    height:100svh;
+    overflow-y:auto;
+    scroll-snap-type:y mandatory;
+    -webkit-overflow-scrolling:touch;
+  "
+  itemscope itemtype="https://schema.org/Person"
+  aria-label="기본정보 섹션"
+>
+  <!-- Pane 1 : 기본정보 (화면 하나를 채우는 카드) -->
+  <section
+    style="
+      scroll-snap-align:start;
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      padding:24px 20px;
+    "
+  >
+    <div
+      class="card"
+      style="
+        width:100%;
+        background:#fafafa;
+        border:1px solid var(--line);
+        border-radius:14px;
+        padding:18px 18px 16px;
+      "
+    >
+      <strong style="display:block;color:var(--orange);font-weight:800;margin-bottom:10px;letter-spacing:.2px">기본정보</strong>
       <dl style="display:grid;grid-template-columns:minmax(96px,140px) 1fr;gap:10px 14px;margin:0">
         <dt>이름</dt>
         <dd itemprop="name">윤영식</dd>
@@ -156,49 +185,52 @@
         <dd>尹泳植</dd>
 
         <dt>영문</dt>
-        <dd>
-          <span itemprop="alternateName">YOON YOUNG SIK</span>
-          <span style="color:var(--muted)"> · 여권 표기: YUN YOUNG SIG</span>
-        </dd>
+        <dd itemprop="alternateName">YOON YOUNG SIK</dd>
 
         <dt>생년월일</dt>
         <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
 
         <dt>주소</dt>
-        <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-          <span itemprop="streetAddress">서울특별시 강서구 월정로 18길 3 smk오피스텔 1201호</span>
-          <span style="color:var(--muted)"> (07775)</span>
-        </dd>
+        <dd itemprop="addressLocality">서울특별시 강서구</dd>
 
         <dt>연락</dt>
         <dd>
-          <a href="mailto:yoon0sik2@gmail.com" itemprop="email">yoon0sik2@gmail.com</a>
+          <a href="mailto:yoon0sik2@gmail.com" itemprop="email" style="color:var(--orange);font-weight:700;text-decoration:none">yoon0sik2@gmail.com</a>
           <span style="color:var(--muted)"> · </span>
-          <a href="tel:+821030064434" itemprop="telephone">010-3006-4434</a>
+          <a href="tel:+821030064434" itemprop="telephone" style="color:var(--orange);font-weight:700;text-decoration:none">010-3006-4434</a>
         </dd>
       </dl>
     </div>
-
-    <!-- 필요 시 추가 안내/다운로드 섹션 -->
-    <div class="card">
-      <strong>다운로드</strong>
-      <ul>
-        <li><a href="/zer0sik/resume.pdf" download>이력서(PDF)</a></li>
-        <li><a href="/zer0sik/career.pdf" download>경력기술서(PDF)</a></li>
-      </ul>
-    </div>
   </section>
 
-  <footer>
-    © <span id="y"></span> zero0sik. Built on GitHub Pages.
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <!-- Pane 2 : 다음 파트(빈 프레임) — 스냅 확인용, 이후 다른 섹션으로 대체 -->
+  <section
+    style="
+      scroll-snap-align:start;
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      padding:24px 20px;
+    "
+    aria-hidden="true"
+  >
+    <div
+      class="card"
+      style="
+        width:100%;
+        background:#fafafa;
+        border:1px solid var(--line);
+        border-radius:14px;
+        padding:28px 18px;
+        text-align:center;
+        color:var(--muted);
+        font-size:14px;
+      "
+    >
+      다음 카드 섹션 자리 (프로젝트/스킬 등) — 모바일에서 스와이프/스크롤로 딱 맞게 넘어가요.
+    </div>
+  </section>
 </main>
-
-
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
