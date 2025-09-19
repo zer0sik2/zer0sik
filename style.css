@@ -49,9 +49,8 @@ body {
 }
 @media (min-width: 1024px) {
   .panes {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: start;
+    grid-template-columns: 1fr; /* ✅ PC도 세로 한 줄 */
+    gap: 80px; /* 카드 간 간격 넉넉하게 */
   }
 }
 
