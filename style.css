@@ -2,164 +2,202 @@
    zer0sik/style.css (PC 개선 + 네이비 배경)
    ================================ */
 
-:root{
-  --page-bg:#0b0c0f;     /* 전체 바탕 네이비 */
-  --card-bg:#ffffff;     /* 카드 흰색 */
-  --ink:#121417;
-  --muted:#6b7280;
-  --orange:#f15a22;
-  --line:#eceff2;
+:root {
+  --page-bg: #0b0c0f; /* 전체 바탕 네이비 */
+  --card-bg: #ffffff; /* 카드 흰색 */
+  --ink: #121417;
+  --muted: #6b7280;
+  --orange: #f15a22;
+  --line: #eceff2;
 
-  --radius:16px;
-  --shadow:0 6px 20px rgba(17,24,39,.06);
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
 }
 
 /* ---------- Base ---------- */
-*{box-sizing:border-box}
-html, body{
-  margin:0;
-  background:var(--page-bg);
-  color:var(--ink);
-  font-family:ui-sans-serif,system-ui,-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;
-  line-height:1.6;
-  font-size:16px;
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
 }
 
 /* ---------- Container ---------- */
-#app{
-  width:100%;
-  max-width:980px;
-  margin:0 auto;
-  border-radius:var(--radius);
-  overflow:hidden;
-  background:transparent;
-  border:none;
-  box-shadow:none;
+#app {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* ---------- Layout ---------- */
-.panes{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
+.panes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
 }
-@media (min-width:1024px){
-  .panes{
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-    align-items:start;
+@media (min-width: 1024px) {
+  .panes {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
   }
 }
 
-.pane{
-  min-height:100dvh;             /* 모바일: 한 섹션 꽉 채움 */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:28px 20px;
-  scroll-snap-align:start;
+.pane {
+  min-height: 100dvh; /* 모바일: 한 섹션 꽉 채움 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  scroll-snap-align: start;
 }
-#app{scroll-snap-type:y mandatory; overflow-y:auto;}
-@media (min-width:1024px){
-  #app{scroll-snap-type:none;}   /* PC는 스냅 해제 */
-  .pane{min-height:auto; padding:32px;}
+#app {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+}
+@media (min-width: 1024px) {
+  #app {
+    scroll-snap-type: none;
+  } /* PC는 스냅 해제 */
+  .pane {
+    min-height: auto;
+    padding: 32px;
+  }
 }
 
 /* ---------- Card ---------- */
-.card{
-  width:100%;
-  background:var(--card-bg);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:24px;
+.card {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
 }
-.card-title{
-  font-size:1.1rem;
-  font-weight:700;
-  color:var(--orange);
-  margin-bottom:16px;
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 16px;
 }
-.card-subtitle{
-  font-size:1rem;
-  font-weight:600;
-  margin:20px 0 10px;
-  color:var(--ink);
+.card-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 20px 0 10px;
+  color: var(--ink);
 }
 
 /* ---------- Info grid ---------- */
-.info-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px 14px;
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 14px;
 }
-.info-grid dt{color:var(--muted); font-size:0.9rem;}
-.info-grid dd{margin:0; font-weight:600;}
-@media (min-width:540px){
-  .info-grid{
-    grid-template-columns:120px 1fr;
-    gap:8px 16px;
+.info-grid dt {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.info-grid dd {
+  margin: 0;
+  font-weight: 600;
+}
+@media (min-width: 540px) {
+  .info-grid {
+    grid-template-columns: 120px 1fr;
+    gap: 8px 16px;
   }
-  .info-grid dt{text-align:right; padding-right:6px;}
+  .info-grid dt {
+    text-align: right;
+    padding-right: 6px;
+  }
 }
 
 /* ---------- List ---------- */
-.list{margin:0; padding-left:1.2rem;}
-.list li{margin:6px 0;}
+.list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.list li {
+  margin: 6px 0;
+}
 
 /* ---------- Links ---------- */
-.link{
-  color:var(--orange);
-  font-weight:700;
-  text-decoration:none;
+.link {
+  color: var(--orange);
+  font-weight: 700;
+  text-decoration: none;
 }
-.link:hover{ text-decoration:underline }
-.link:focus-visible{
-  outline:2px solid color-mix(in srgb, var(--orange) 40%, black);
-  outline-offset:2px;
+.link:hover {
+  text-decoration: underline;
+}
+.link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--orange) 40%, black);
+  outline-offset: 2px;
 }
 
 /* ---------- Footer ---------- */
-.foot{
-  text-align:center;
-  font-size:0.85rem;
-  color:var(--muted);
-  padding:20px 0 30px;
+.foot {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 20px 0 30px;
 }
 
 /* ---------- Motion Pref ---------- */
-@media (prefers-reduced-motion: reduce){
-  #app{ scroll-behavior:auto }
+@media (prefers-reduced-motion: reduce) {
+  #app {
+    scroll-behavior: auto;
+  }
 }
 
 /* ---------- Small Devices ---------- */
-@media (max-width:360px){
-  #app{ border-radius:0 } /* edge-to-edge */
+@media (max-width: 360px) {
+  #app {
+    border-radius: 0;
+  } /* edge-to-edge */
 }
 
 /* ---------- PC 전용 폰트 확대 ---------- */
-@media (min-width:1024px){
-  body{
-    font-size:18px;
-    line-height:1.75;
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+    line-height: 1.75;
   }
-  .card-title{ font-size:1.25rem; }
-  .card-subtitle{ font-size:1.1rem; }
-  .info-grid dt, .info-grid dd{ font-size:1rem; }
+  .card-title {
+    font-size: 1.25rem;
+  }
+  .card-subtitle {
+    font-size: 1.1rem;
+  }
+  .info-grid dt,
+  .info-grid dd {
+    font-size: 1rem;
+  }
 }
 
-.with-logo{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;                 /* 글자와 로고 간격 */
+.with-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* 글자와 로고 간격 */
 }
 
-.uni-logo{
-  width:48px;
-  height:48px;
-  border:1px solid #0b0c0f; /* ✅ 테두리 얇게 */
-  border-radius:6px;
-  background:#fff;          
-  object-fit:contain;
+.uni-logo {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #0b0c0f; /* ✅ 테두리 얇게 */
+  border-radius: 6px;
+  background: #fff;
+  object-fit: contain;
 }
-
