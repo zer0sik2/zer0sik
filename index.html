@@ -137,47 +137,89 @@
   </style>
 </head>
 <body>
-<main id="app"
-  style="
-    /* 페이지 중앙 정렬 + 모바일 세로 스냅 */
+<!-- 모바일 깨짐 수정 전용 스타일(요청에 따라 body 안에만 작성) -->
+<style>
+  /* 컨테이너: 모바일 100vh 이슈 보정 + 좌우 여백 보호 */
+  #app{
     width:100%;
     max-width:820px;
-    margin-inline:auto;
+    margin:0 auto;
+    background:linear-gradient(180deg,#fff 0%,#fefefe 100%);
     border:1px solid var(--line);
     border-radius:16px;
     box-shadow:0 10px 30px rgba(17,24,39,.08);
-    background:linear-gradient(180deg,#fff 0%,#fefefe 100%);
-    /* 카드/섹션 단위 스냅 스크롤 */
-    height:100svh;
+
+    /* 모바일에서 주소창 변동에 안전한 높이 */
+    min-height:100dvh;
+    height:auto;
+
+    /* 스냅 스크롤 (부드럽게) */
     overflow-y:auto;
-    scroll-snap-type:y mandatory;
+    scroll-snap-type:y proximity;
     -webkit-overflow-scrolling:touch;
-  "
-  itemscope itemtype="https://schema.org/Person"
-  aria-label="기본정보 섹션"
->
-  <!-- Pane 1 : 기본정보 (화면 하나를 채우는 카드) -->
-  <section
-    style="
-      scroll-snap-align:start;
-      min-height:100svh;
-      display:flex;
-      align-items:center;
-      padding:24px 20px;
-    "
-  >
-    <div
-      class="card"
-      style="
-        width:100%;
-        background:#fafafa;
-        border:1px solid var(--line);
-        border-radius:14px;
-        padding:18px 18px 16px;
-      "
-    >
+
+    /* 안전영역 패딩(iOS 노치 등) */
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+
+  /* 섹션(카드 한 화면 단위) */
+  .pane{
+    scroll-snap-align:start;
+    min-height: min(100dvh, 900px); /* 너무 큰 기기에서 과도확대 방지 */
+    display:flex;
+    align-items:center;
+    padding:24px 0;
+  }
+
+  .card{
+    width:100%;
+    background:#fafafa;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px;
+  }
+
+  /* 정의목록 그리드: 모바일 1열, 태블릿↑ 2열 */
+  .info-grid{
+    display:grid;
+    grid-template-columns: 1fr;         /* 기본: 1열 */
+    gap:10px 14px;
+    margin:0;
+  }
+  .info-grid dt{
+    color:var(--muted);
+  }
+  .info-grid dd{
+    margin:0;
+    font-weight:600;
+  }
+
+  @media (min-width: 540px){
+    .info-grid{
+      grid-template-columns:minmax(96px,140px) 1fr;  /* 2열 */
+    }
+    .info-grid dt{text-align:left}
+  }
+
+  /* 링크 공통 */
+  .link{
+    color:var(--orange);
+    font-weight:700;
+    text-decoration:none;
+  }
+  .sep{ color:var(--muted) }
+
+  /* 가로 스크롤/미세 넘침 방지 */
+  html, body{ overflow-x:hidden }
+</style>
+
+<main id="app" itemscope itemtype="https://schema.org/Person" aria-label="기본정보 섹션">
+  <!-- Pane 1 : 기본정보 -->
+  <section class="pane">
+    <div class="card">
       <strong style="display:block;color:var(--orange);font-weight:800;margin-bottom:10px;letter-spacing:.2px">기본정보</strong>
-      <dl style="display:grid;grid-template-columns:minmax(96px,140px) 1fr;gap:10px 14px;margin:0">
+      <dl class="info-grid">
         <dt>이름</dt>
         <dd itemprop="name">윤영식</dd>
 
@@ -195,44 +237,20 @@
 
         <dt>연락</dt>
         <dd>
-  <a href="mailto:yoon0sik2@gmail.com" itemprop="email"
-     style="color:var(--orange);font-weight:700;text-decoration:none">yoon0sik2@gmail.com</a>
-  <span style="color:var(--muted)"> · </span>
-  <a href="mailto:yoonys0515@naver.com" itemprop="email"
-     style="color:var(--orange);font-weight:700;text-decoration:none">yoonys0515@naver.com</a>
-  <span style="color:var(--muted)"> · </span>
-  <a href="tel:+821030064434" itemprop="telephone"
-     style="color:var(--orange);font-weight:700;text-decoration:none">010-3006-4434</a>
-</dd>
+          <a class="link" href="mailto:yoon0sik2@gmail.com" itemprop="email">yoon0sik2@gmail.com</a>
+          <span class="sep"> · </span>
+          <a class="link" href="mailto:yoonys0515@naver.com" itemprop="email">yoonys0515@naver.com</a>
+          <span class="sep"> · </span>
+          <a class="link" href="tel:+821030064434" itemprop="telephone">010-3006-4434</a>
+        </dd>
       </dl>
     </div>
   </section>
 
-  <!-- Pane 2 : 다음 파트(빈 프레임) — 스냅 확인용, 이후 다른 섹션으로 대체 -->
-  <section
-    style="
-      scroll-snap-align:start;
-      min-height:100svh;
-      display:flex;
-      align-items:center;
-      padding:24px 20px;
-    "
-    aria-hidden="true"
-  >
-    <div
-      class="card"
-      style="
-        width:100%;
-        background:#fafafa;
-        border:1px solid var(--line);
-        border-radius:14px;
-        padding:28px 18px;
-        text-align:center;
-        color:var(--muted);
-        font-size:14px;
-      "
-    >
-      다음 카드 섹션 자리 (프로젝트/스킬 등) — 모바일에서 스와이프/스크롤로 딱 맞게 넘어가요.
+  <!-- Pane 2 : 다음 카드(프레임) — 이후 다른 파트로 교체 예정 -->
+  <section class="pane" aria-hidden="true">
+    <div class="card" style="text-align:center;color:var(--muted);font-size:14px;">
+      다음 카드 섹션 자리 (프로젝트/스킬 등) — 모바일에서 위·아래 스크롤 시 자연스럽게 넘어갑니다.
     </div>
   </section>
 </main>
