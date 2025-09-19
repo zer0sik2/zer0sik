@@ -230,3 +230,36 @@ body {
     height: 96px;
   }
 }
+
+/* 기본정보 카드 가로 배치 */
+.card-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* 텍스트 영역 */
+.info-box {
+  flex: 1;
+}
+
+/* 사진 영역 */
+.photo-box {
+  flex: 0 0 auto;
+}
+.profile-photo {
+  width: 140px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  background: #fff;
+}
+
+/* PC에서 사진 좀 더 크게 */
+@media (min-width: 1024px) {
+  .profile-photo {
+    width: 200px;
+  }
+}
