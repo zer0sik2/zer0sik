@@ -11,85 +11,88 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main id="app" itemscope itemtype="https://schema.org/Person" aria-label="기본정보 섹션">
-      <!-- Pane 1 : 기본정보 -->
-      <section class="pane">
-        <div class="card">
-          <strong class="card-title">기본정보</strong>
-          <dl class="info-grid">
-            <dt>이름</dt>
-            <dd itemprop="name">윤영식</dd>
+   <main id="app" itemscope itemtype="https://schema.org/Person" aria-label="기본정보 및 부가정보 섹션">
+  <!-- ✅ 래퍼 추가 -->
+  <div class="panes">
 
-            <dt>한문</dt>
-            <dd>尹泳植</dd>
+    <!-- Pane 1 : 기본정보 -->
+    <section class="pane">
+      <div class="card">
+        <strong class="card-title">기본정보</strong>
+        <dl class="info-grid">
+          <dt>이름</dt>
+          <dd itemprop="name">윤영식</dd>
 
-            <dt>영문</dt>
-            <dd itemprop="alternateName">YOON YOUNG SIK</dd>
+          <dt>한문</dt>
+          <dd>尹泳植</dd>
 
-            <dt>생년월일</dt>
-            <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
+          <dt>영문</dt>
+          <dd itemprop="alternateName">YOON YOUNG SIK</dd>
 
-            <dt>주소</dt>
-            <dd itemprop="addressLocality">서울특별시 강서구</dd>
+          <dt>생년월일</dt>
+          <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
 
-            <dt>연락</dt>
-            <dd>
-              <a class="link" href="mailto:yoon0sik2@gmail.com" itemprop="email">yoon0sik2@gmail.com</a>
-              <br>
-              <a class="link" href="mailto:yoonys0515@naver.com" itemprop="email">yoonys0515@naver.com</a>
-              <br>
-              <a class="link" href="tel:+821030064434" itemprop="telephone">010-3006-4434</a>
-            </dd>
-          </dl>
-        </div>
-      </section>
-<!-- (추가) Pane 2 자리에 이어 붙이기: 부가정보 카드 섹션 -->
-<section class="pane" aria-label="부가정보 섹션">
-  <div class="card">
-    <strong class="card-title">부가정보</strong>
+          <dt>주소</dt>
+          <dd itemprop="addressLocality">서울특별시 강서구</dd>
 
-    <h3 class="card-subtitle">학력</h3>
-    <ul class="list">
-      <li itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
-        <span itemprop="name">인천계산고등학교</span>
-        <span>
-          <time datetime="2005-03">2005.03</time> 입학 –
-          <time datetime="2008-02">2008.02</time> 졸업
-        </span>
-      </li>
-      <li itemprop="alumniOf" itemscope itemtype="https://schema.org/CollegeOrUniversity">
-        <span itemprop="name">서경대학교 컴퓨터과학과</span>
-        <span>
-          <time datetime="2008-03">2008.03</time> 입학 –
-          <time datetime="2015-08">2015.08</time> 졸업
-        </span>
-      </li>
-    </ul>
+          <dt>연락</dt>
+          <dd>
+            <a class="link" href="mailto:yoon0sik2@gmail.com" itemprop="email">yoon0sik2@gmail.com</a><br>
+            <a class="link" href="mailto:yoonys0515@naver.com" itemprop="email">yoonys0515@naver.com</a><br>
+            <a class="link" href="tel:+821030064434" itemprop="telephone">010-3006-4434</a>
+          </dd>
+        </dl>
+      </div>
+    </section>
 
-    <h3 class="card-subtitle">병역</h3>
-    <p>
-      공군 병장 만기전역
-      (<time datetime="2009-10">2009.10</time> 입대 –
-      <time datetime="2011-11">2011.11</time> 전역)
-    </p>
+    <!-- Pane 2 : 부가정보 -->
+    <section class="pane" aria-label="부가정보 섹션">
+      <div class="card">
+        <strong class="card-title">부가정보</strong>
 
-    <h3 class="card-subtitle">자격증</h3>
-    <ul class="list">
-      <li itemprop="hasCredential" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
-        <span itemprop="name">정보처리기사</span>
-        <span>
-          <time datetime="2018-05" itemprop="dateCreated">2018.05</time> 취득
-        </span>
-      </li>
-    </ul>
-  </div>
-</section>
+        <h3 class="card-subtitle">학력</h3>
+        <ul class="list">
+          <li itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+            <span itemprop="name">인천계산고등학교</span>
+            <span>
+              <time datetime="2005-03">2005.03</time> 입학 –
+              <time datetime="2008-02">2008.02</time> 졸업
+            </span>
+          </li>
+          <li itemprop="alumniOf" itemscope itemtype="https://schema.org/CollegeOrUniversity">
+            <span itemprop="name">서경대학교 컴퓨터과학과</span>
+            <span>
+              <time datetime="2008-03">2008.03</time> 입학 –
+              <time datetime="2015-08">2015.08</time> 졸업
+            </span>
+          </li>
+        </ul>
 
+        <h3 class="card-subtitle">병역</h3>
+        <p>
+          공군 병장 만기전역
+          (<time datetime="2009-10">2009.10</time> 입대 –
+          <time datetime="2011-11">2011.11</time> 전역)
+        </p>
 
-      <footer class="foot">
-        © <span id="y"></span> zero0sik. Built on GitHub Pages.
-      </footer>
-    </main>
+        <h3 class="card-subtitle">자격증</h3>
+        <ul class="list">
+          <li itemprop="hasCredential" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+            <span itemprop="name">정보처리기사</span>
+            <span>
+              <time datetime="2018-05" itemprop="dateCreated">2018.05</time> 취득
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </div><!-- /.panes -->
+
+  <footer class="foot">
+    © <span id="y"></span> zero0sik. Built on GitHub Pages.
+  </footer>
+</main>
 
     <script>
       // 연도 자동 갱신
