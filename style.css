@@ -1,16 +1,20 @@
+/* ================================
+   zer0sik/style.css (PC 개선 + 네이비 배경)
+   ================================ */
+
 :root{
-  --page-bg:#f8f9fa;     /* 전체 섹션 배경 */
-  --card-bg:#ffffff;     /* 카드 배경 흰색 */
+  --page-bg:#0b0c0f;     /* 전체 바탕 네이비 */
+  --card-bg:#ffffff;     /* 카드 흰색 */
   --ink:#121417;
   --muted:#6b7280;
   --orange:#f15a22;
-  --line:#e5e7eb;
+  --line:#eceff2;
 
   --radius:16px;
   --shadow:0 6px 20px rgba(17,24,39,.06);
 }
 
-/* Base */
+/* ---------- Base ---------- */
 *{box-sizing:border-box}
 html, body{
   margin:0;
@@ -18,20 +22,37 @@ html, body{
   color:var(--ink);
   font-family:ui-sans-serif,system-ui,-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;
   line-height:1.6;
+  font-size:16px;
 }
 
-/* Container */
+/* ---------- Container ---------- */
 #app{
   width:100%;
   max-width:980px;
   margin:0 auto;
   border-radius:var(--radius);
   overflow:hidden;
+  background:transparent;
+  border:none;
+  box-shadow:none;
 }
 
-/* Pane (모바일: 스냅 한 화면, PC: 해제) */
+/* ---------- Layout ---------- */
+.panes{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+@media (min-width:1024px){
+  .panes{
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    align-items:start;
+  }
+}
+
 .pane{
-  min-height:100dvh;             /* 모바일에서 한 섹션 꽉 차게 */
+  min-height:100dvh;             /* 모바일: 한 섹션 꽉 채움 */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -42,10 +63,9 @@ html, body{
 @media (min-width:1024px){
   #app{scroll-snap-type:none;}   /* PC는 스냅 해제 */
   .pane{min-height:auto; padding:32px;}
-  .panes{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
 }
 
-/* Card */
+/* ---------- Card ---------- */
 .card{
   width:100%;
   background:var(--card-bg);
@@ -67,7 +87,7 @@ html, body{
   color:var(--ink);
 }
 
-/* Info grid */
+/* ---------- Info grid ---------- */
 .info-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -83,14 +103,47 @@ html, body{
   .info-grid dt{text-align:right; padding-right:6px;}
 }
 
-/* List */
+/* ---------- List ---------- */
 .list{margin:0; padding-left:1.2rem;}
 .list li{margin:6px 0;}
 
-/* Footer */
+/* ---------- Links ---------- */
+.link{
+  color:var(--orange);
+  font-weight:700;
+  text-decoration:none;
+}
+.link:hover{ text-decoration:underline }
+.link:focus-visible{
+  outline:2px solid color-mix(in srgb, var(--orange) 40%, black);
+  outline-offset:2px;
+}
+
+/* ---------- Footer ---------- */
 .foot{
   text-align:center;
   font-size:0.85rem;
   color:var(--muted);
   padding:20px 0 30px;
+}
+
+/* ---------- Motion Pref ---------- */
+@media (prefers-reduced-motion: reduce){
+  #app{ scroll-behavior:auto }
+}
+
+/* ---------- Small Devices ---------- */
+@media (max-width:360px){
+  #app{ border-radius:0 } /* edge-to-edge */
+}
+
+/* ---------- PC 전용 폰트 확대 ---------- */
+@media (min-width:1024px){
+  body{
+    font-size:18px;
+    line-height:1.75;
+  }
+  .card-title{ font-size:1.25rem; }
+  .card-subtitle{ font-size:1.1rem; }
+  .info-grid dt, .info-grid dd{ font-size:1rem; }
 }
