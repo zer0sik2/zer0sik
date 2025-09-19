@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>zero0sik | Portfolio</title>
+    <meta name="description" content="백엔드 개발자 윤영식(Zero0Sik) 포트폴리오" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <style>
+      :root {
+        --bg: #0f1115; --fg: #e5e7eb; --muted:#9ca3af; --accent:#60a5fa; --card:#141823;
+      }
+      * { box-sizing: border-box }
+      html, body { height: 100% }
+      body {
+        margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+        background: radial-gradient(1200px 800px at 70% -10%, #1b2030 0%, var(--bg) 60%), var(--bg);
+        color: var(--fg); line-height: 1.6; display: grid; place-items: center; padding: 24px;
+      }
+      main {
+        width: 100%; max-width: 720px; background: color-mix(in srgb, var(--card) 92%, transparent);
+        border: 1px solid #1f2430; border-radius: 16px; padding: 28px 24px; box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      }
+      h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 36px); letter-spacing: .3px }
+      .sub { color: var(--muted); margin: 0 0 18px; font-size: 14px }
+      .grid { display: grid; gap: 14px; margin-top: 18px }
+      .card {
+        border: 1px solid #232838; border-radius: 12px; padding: 14px 16px; background: #121725;
+      }
+      a { color: var(--accent); text-decoration: none }
+      a:hover { text-decoration: underline }
+      footer { margin-top: 20px; color: var(--muted); font-size: 12px }
+      code { background: #0b0f1a; border: 1px solid #1f2430; padding: 2px 6px; border-radius: 6px }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Zero0Sik</h1>
+        <p class="sub">윤영식 | Backend Developer · Java · Spring · SQL</p>
+      </header>
+
+      <section class="grid">
+        <div class="card">
+          <strong>소개</strong>
+          <p>트랜잭션 안정성과 운영 효율을 중시하는 백엔드 개발자입니다. Spring Boot, Batch, JPA/QueryDSL, RDBMS에 강점이 있습니다.</p>
+        </div>
+
+        <div class="card">
+          <strong>프로젝트</strong>
+          <ul>
+            <li><a href="#" title="프로젝트 링크">프로젝트 A</a> — 간단 설명 한 줄</li>
+            <li><a href="#" title="프로젝트 링크">프로젝트 B</a> — 간단 설명 한 줄</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>링크</strong>
+          <p>
+            <a href="https://github.com/zero0sik" target="_blank" rel="noreferrer">GitHub</a> ·
+            <a href="mailto:yoon0sik2@gmail.com">Email</a> ·
+            <a href="#" target="_blank" rel="noreferrer">Resume</a>
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <span>© <span id="y"></span> zero0sik. Built on GitHub Pages.</span>
+      </footer>
+    </main>
+
+    <script>
+      // 연도 자동 갱신
+      document.getElementById('y').textContent = new Date().getFullYear();
+      // GitHub Pages 하위 경로 배포 시 SPA 라우팅 이슈 방지용(필요 시 사용)
+      // 상세: https://github.com/rafgraph/spa-github-pages
+      // 간단 정적 포트폴리오에는 불필요하면 제거해도 됨.
+    </script>
+  </body>
+</html>
