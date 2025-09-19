@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (PC 개선 + 네이비 배경)
+   zer0sik/style.css (Final)
    ================================ */
 
 :root {
@@ -169,35 +169,60 @@ body {
   } /* edge-to-edge */
 }
 
-/* ---------- PC 전용 폰트 확대 ---------- */
-@media (min-width: 1024px) {
-  body {
-    font-size: 18px;
-    line-height: 1.75;
-  }
-  .card-title {
-    font-size: 1.25rem;
-  }
-  .card-subtitle {
-    font-size: 1.1rem;
-  }
-  .info-grid dt,
-  .info-grid dd {
-    font-size: 1rem;
-  }
-}
-
-.with-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px; /* 글자와 로고 간격 */
-}
-
+/* ---------- 로고 기본 ---------- */
 .uni-logo {
   width: 48px;
   height: 48px;
-  border: 1px solid #0b0c0f; /* ✅ 테두리 얇게 */
+  border: 1px solid #0b0c0f; /* 얇은 네이비 테두리 */
   border-radius: 6px;
   background: #fff;
   object-fit: contain;
+}
+.with-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- PC 전용 (대폭 확대) ---------- */
+@media (min-width: 1024px) {
+  body {
+    font-size: 22px;
+    line-height: 1.9;
+  }
+
+  .pane {
+    padding: 80px 40px; /* 섹션 여백 확장 */
+  }
+
+  .card {
+    padding: 48px; /* 카드 내부 여백 넉넉하게 */
+  }
+
+  .card-title {
+    font-size: 1.8rem; /* 섹션 제목 크게 */
+    margin-bottom: 24px;
+  }
+
+  .card-subtitle {
+    font-size: 1.4rem; /* 부제목 크게 */
+    margin: 28px 0 16px;
+  }
+
+  .info-grid {
+    grid-template-columns: 180px 1fr; /* 라벨 폭 늘리기 */
+    gap: 20px 24px;
+  }
+  .info-grid dt {
+    font-size: 1.2rem;
+  }
+  .info-grid dd {
+    font-size: 1.2rem;
+  }
+
+  /* ✅ PC에서 대학 로고 확대 */
+  .uni-logo {
+    width: 96px;
+    height: 96px;
+  }
 }
