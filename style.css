@@ -1,184 +1,96 @@
-/* ================================
-   zer0sik/style.css (정리 버전)
-   ================================ */
-
-/* ---------- Theme Vars ---------- */
 :root{
-  --paper:#ffffff;
+  --page-bg:#f8f9fa;     /* 전체 섹션 배경 */
+  --card-bg:#ffffff;     /* 카드 배경 흰색 */
   --ink:#121417;
   --muted:#6b7280;
   --orange:#f15a22;
-  --beige:#d8b894;
-  --line:#eceff2;
+  --line:#e5e7eb;
 
-  --card-bg:#fafafa;
   --radius:16px;
-  --shadow:0 10px 30px rgba(17,24,39,.08);
-
-  color-scheme: light;
+  --shadow:0 6px 20px rgba(17,24,39,.06);
 }
 
-/* ---------- Base ---------- */
+/* Base */
 *{box-sizing:border-box}
 html, body{
-  height:auto;            /* 이중 스크롤 방지 */
-  overflow-y:auto;
-  overflow-x:hidden;
-  background:var(--paper);
+  margin:0;
+  background:var(--page-bg);
   color:var(--ink);
-  line-height:1.7;
-  -webkit-text-size-adjust:100%;
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR","Malgun Gothic",sans-serif;
+  font-family:ui-sans-serif,system-ui,-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;
+  line-height:1.6;
 }
 
-/* ---------- Container ---------- */
+/* Container */
 #app{
   width:100%;
-  max-width:820px;
+  max-width:980px;
   margin:0 auto;
-  background:
-    radial-gradient(1200px 800px at 60% -10%, rgba(241,90,34,.10) 0%, transparent 55%),
-    linear-gradient(180deg,#fff 0%,#fefefe 100%);
-  border:1px solid var(--line);
   border-radius:var(--radius);
-  box-shadow:var(--shadow);
-
-  min-height:auto;         /* auto로 변경 */
-  overflow-y:visible;      /* 내부 스크롤 제거 */
-  scroll-snap-type:none;   /* 섹션 스냅 해제 */
-
-  padding-left:max(20px, env(safe-area-inset-left));
-  padding-right:max(20px, env(safe-area-inset-right));
+  overflow:hidden;
 }
 
-/* ---------- Layout ---------- */
-.panes{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-}
-@media (min-width:1024px){
-  .panes{
-    grid-template-columns:1fr 1fr; /* PC에서 2열 */
-    align-items:start;
-  }
-}
-
+/* Pane (모바일: 스냅 한 화면, PC: 해제) */
 .pane{
-  min-height:unset;      /* 100dvh 해제 */
-  align-items:stretch;
-  padding:20px 0;
+  min-height:100dvh;             /* 모바일에서 한 섹션 꽉 차게 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 20px;
+  scroll-snap-align:start;
 }
+#app{scroll-snap-type:y mandatory; overflow-y:auto;}
 @media (min-width:1024px){
-  .pane{ padding:10px 0; }
+  #app{scroll-snap-type:none;}   /* PC는 스냅 해제 */
+  .pane{min-height:auto; padding:32px;}
+  .panes{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
 }
 
-/* ---------- Card ---------- */
+/* Card */
 .card{
   width:100%;
   background:var(--card-bg);
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:20px 18px;
-  position:relative;
+  padding:24px;
 }
 .card-title{
-  display:block;
+  font-size:1.1rem;
+  font-weight:700;
   color:var(--orange);
-  font-weight:800;
-  font-size:1.06rem;
-  margin-bottom:12px;
-  letter-spacing:.2px;
+  margin-bottom:16px;
 }
 .card-subtitle{
-  margin:18px 0 10px;
-  font-size:.96rem;
-  font-weight:700;
-  color:color-mix(in srgb, var(--ink) 80%, var(--muted));
-}
-.placeholder{
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
+  font-size:1rem;
+  font-weight:600;
+  margin:20px 0 10px;
+  color:var(--ink);
 }
 
-/* ---------- Info Grid ---------- */
+/* Info grid */
 .info-grid{
   display:grid;
   grid-template-columns:1fr;
   gap:10px 14px;
-  margin:0;
 }
-.info-grid dt{ color:var(--muted) }
-.info-grid dd{ margin:0; font-weight:700 }
-
+.info-grid dt{color:var(--muted); font-size:0.9rem;}
+.info-grid dd{margin:0; font-weight:600;}
 @media (min-width:540px){
   .info-grid{
-    grid-template-columns:minmax(96px,140px) 1fr;
+    grid-template-columns:120px 1fr;
     gap:8px 16px;
   }
-  .info-grid dt{
-    text-align:right;
-    padding-right:4px;
-  }
-  .info-grid dd{ padding-left:0; }
+  .info-grid dt{text-align:right; padding-right:6px;}
 }
 
-@media (max-width:539.98px){
-  .info-grid{ gap:6px 14px; }
-  .info-grid dt{
-    font-size:13px;
-    color:var(--muted);
-    line-height:1.4;
-  }
-  .info-grid dd{
-    margin:0;
-    font-weight:700;
-    padding-left:2px; /* 모바일 들여쓰기 */
-  }
-}
+/* List */
+.list{margin:0; padding-left:1.2rem;}
+.list li{margin:6px 0;}
 
-/* ---------- Links ---------- */
-.link{
-  color:var(--orange);
-  font-weight:700;
-  text-decoration:none;
-}
-.link:hover{ text-decoration:underline }
-.link:focus-visible{
-  outline:2px solid color-mix(in srgb, var(--orange) 40%, black);
-  outline-offset:2px;
-}
-.sep{ color:var(--muted) }
-
-/* ---------- Footer ---------- */
+/* Footer */
 .foot{
   text-align:center;
+  font-size:0.85rem;
   color:var(--muted);
-  font-size:12px;
-  padding:18px 0 22px;
-}
-
-/* ---------- Motion Pref ---------- */
-@media (prefers-reduced-motion: reduce){
-  #app{ scroll-behavior:auto }
-}
-
-/* ---------- Small Devices ---------- */
-@media (max-width:360px){
-  #app{ border-radius:0 } /* edge-to-edge */
-}
-
-/* ---------- Dark Mode ---------- */
-@media (prefers-color-scheme: dark){
-  :root{
-    --paper:#0b0c0f;
-    --ink:#e5e7eb;
-    --card-bg:#111318;
-    --line:#1f2937;
-  }
-  body{ background:var(--paper); color:var(--ink); }
-  .card{ box-shadow:none; }
-  .card-subtitle{ color:#cbd5e1; }
+  padding:20px 0 30px;
 }
