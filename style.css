@@ -151,13 +151,14 @@ html, body{
 .with-logo{
   display:inline-flex;
   align-items:center;
-  gap:6px;                 /* 글자와 로고 간격 */
+  gap:8px;                 /* 로고와 글자 간격 */
 }
 
 .uni-logo{
-  width:26px;              /* 크기 조절 */
-  height:auto;
+  width:32px;
+  height:32px;
   border:2px solid #0b0c0f; /* 네이비 테두리 */
   border-radius:4px;
   background:#fff;          /* 카드 배경과 동일 */
+  object-fit:contain;
 }
