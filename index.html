@@ -137,42 +137,67 @@
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Zero0Sik <span class="tag">Java · Spring Boot · SQL</span></h1>
-      <div class="ring"></div>
-      <p class="sub">윤영식 | Backend Developer — 트랜잭션 안정성과 운영 효율 중심</p>
-    </header>
+<main>
+  <header>
+    <h1>Zero0Sik <span class="tag">Java · Spring Boot · SQL</span></h1>
+    <div class="ring"></div>
+    <p class="sub">윤영식 | Backend Developer — 트랜잭션 안정성과 운영 효율 중심</p>
+  </header>
 
-    <section class="grid">
-      <div class="card">
-        <strong>소개</strong>
-        <p>트랜잭션 안정성과 운영 효율을 중시하는 백엔드 개발자입니다. Spring Boot, Batch, JPA/QueryDSL, RDBMS에 강점이 있습니다.</p>
-        <div class="stitches" aria-hidden="true"></div>
-      </div>
+  <!-- 기본정보 -->
+  <section class="grid" aria-labelledby="basic-info-title" itemscope itemtype="https://schema.org/Person">
+    <div class="card">
+      <strong id="basic-info-title">기본정보</strong>
+      <dl style="display:grid;grid-template-columns:minmax(96px,140px) 1fr;gap:10px 14px;margin:0">
+        <dt>이름</dt>
+        <dd itemprop="name">윤영식</dd>
 
-      <div class="card">
-        <strong>프로젝트</strong>
-        <ul>
-          <li><a href="#">프로젝트 A</a> — 간단 설명 한 줄</li>
-          <li><a href="#">프로젝트 B</a> — 간단 설명 한 줄</li>
-        </ul>
-      </div>
+        <dt>한문</dt>
+        <dd>尹泳植</dd>
 
-      <div class="card">
-        <strong>링크</strong>
-        <p>
-          <a href="https://github.com/zero0sik" target="_blank" rel="noreferrer">GitHub</a> ·
-          <a href="mailto:yoon0sik2@gmail.com">Email</a> ·
-          <a href="#">Resume</a>
-        </p>
-      </div>
-    </section>
+        <dt>영문</dt>
+        <dd>
+          <span itemprop="alternateName">YOON YOUNG SIK</span>
+          <span style="color:var(--muted)"> · 여권 표기: YUN YOUNG SIG</span>
+        </dd>
 
-    <footer>
-      © <span id="y"></span> zero0sik. Built on GitHub Pages.
-    </footer>
-  </main>
+        <dt>생년월일</dt>
+        <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
+
+        <dt>주소</dt>
+        <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">서울특별시 강서구 월정로 18길 3 smk오피스텔 1201호</span>
+          <span style="color:var(--muted)"> (07775)</span>
+        </dd>
+
+        <dt>연락</dt>
+        <dd>
+          <a href="mailto:yoon0sik2@gmail.com" itemprop="email">yoon0sik2@gmail.com</a>
+          <span style="color:var(--muted)"> · </span>
+          <a href="tel:+821030064434" itemprop="telephone">010-3006-4434</a>
+        </dd>
+      </dl>
+    </div>
+
+    <!-- 필요 시 추가 안내/다운로드 섹션 -->
+    <div class="card">
+      <strong>다운로드</strong>
+      <ul>
+        <li><a href="/zer0sik/resume.pdf" download>이력서(PDF)</a></li>
+        <li><a href="/zer0sik/career.pdf" download>경력기술서(PDF)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> zero0sik. Built on GitHub Pages.
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</main>
+
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
