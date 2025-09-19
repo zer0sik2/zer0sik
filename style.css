@@ -1,0 +1,328 @@
+/* ================================
+   style.css
+   Portfolio Styling for zero0sik
+   ================================ */
+
+/* ---------- Design Tokens ----------
+   전체 테마 색상, 폰트, 그림자, 라운딩 값 정의 */
+:root {
+  --page-bg: #0b0c0f;
+  --card-bg: #ffffff;
+  --ink: #121417;
+  --muted: #6b7280;
+  --orange: #f15a22;
+  --line: #eceff2;
+
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
+}
+
+/* ---------- Base ----------
+   브라우저 기본 스타일 리셋 및 기본 폰트 설정 */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow: hidden; /* 한 섹션 UX를 위한 스크롤 차단 */
+}
+
+/* ---------- App Layout ----------
+   메인 컨테이너 및 스크롤 영역 레이아웃 */
+#app {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* scroll-container는 transform을 통한 스크롤 효과만 적용 */
+#scroll-container {
+  will-change: transform;
+  transition: transform 0.8s ease-in-out;
+}
+
+/* 각 Pane은 화면 전체 높이를 차지 */
+.pane {
+  height: 100dvh;
+  height: 100svh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ---------- Card ----------
+   각 Pane 안에서 표시되는 카드 스타일 */
+.card {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+/* ---------- Info Grid ----------
+   기본정보, 부가정보, 기술스택 상세에 사용되는 grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 14px;
+}
+.info-grid dt {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.info-grid dd {
+  margin: 0;
+  font-weight: 600;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* ---------- Links ----------
+   공통 링크 스타일 */
+.link {
+  color: var(--orange);
+  font-weight: 700;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Profile ----------
+   프로필 카드 전용 스타일 */
+.profile-card {
+  text-align: center;
+  padding: 40px 20px;
+}
+.profile-photo-big {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.profile-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--orange);
+}
+.profile-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 6px 0 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ---------- University Logo ----------
+   학력 섹션에서 사용되는 로고 스타일 */
+.uni-logo {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  object-fit: contain;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.with-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+/* ---------- Meta ----------
+   날짜, 부서명 등 부가정보 스타일 */
+.meta {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.career-body .meta:first-child {
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* ---------- Career ----------
+   경력 카드 전용 스타일 */
+.company-logo {
+  width: 120px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.company-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.career-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.career-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.career-body .meta {
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tl-points {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+.tl-points li {
+  margin: 4px 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ---------- Utility ----------
+   유틸리티 클래스 */
+.break-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/* ---------- Page Indicator ----------
+   현재 섹션 위치를 표시하는 인디케이터 */
+.page-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* ---------- Page Navigation ----------
+   상단에 고정된 네비게이션 버튼 */
+.page-nav {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10000;
+}
+.page-nav button {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.page-nav button:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+/* ---------- Responsive ----------
+   반응형 디자인 보정 */
+@media (min-width: 540px) {
+  .info-grid {
+    grid-template-columns: 120px 1fr;
+    gap: 8px 16px;
+  }
+  .info-grid dt {
+    text-align: right;
+    padding-right: 6px;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 22px;
+    line-height: 1.9;
+  }
+  .card {
+    padding: 48px;
+  }
+  .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  .info-grid {
+    grid-template-columns: 180px 1fr;
+    gap: 20px 24px;
+  }
+  .info-grid dt,
+  .info-grid dd {
+    font-size: 1.2rem;
+  }
+  .profile-photo-big {
+    width: 240px;
+  }
+  .profile-name {
+    font-size: 2.6rem;
+  }
+  .profile-sub {
+    font-size: 1.2rem;
+  }
+  .uni-logo {
+    width: 64px;
+    height: 64px;
+  }
+  .meta {
+    display: inline;
+    margin-top: 0;
+    margin-left: 8px;
+  }
+}
+
+/* ---------- 성격 장단점 ----------
+   성격 섹션 전용 스타일 */
+.traits-combined {
+  margin-top: 16px;
+}
+.traits-combined .trait-text {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-align: justify;
+}

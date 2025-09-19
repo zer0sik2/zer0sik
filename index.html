@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 캐시 무효화를 위한 메타 태그 -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>zero0sik | Portfolio</title>
+    <meta
+      name="description"
+      content="백엔드 개발자 윤영식(Zero0Sik) 포트폴리오"
+    />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+
+    <!-- Devicon 아이콘 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 전체 앱 컨테이너 -->
+    <main id="app">
+      <!-- 페이지 이동 네비게이션 (각 버튼은 섹션 인덱스를 data-target으로 가짐) -->
+      <nav class="page-nav">
+        <button data-target="0">프로필</button>
+        <button data-target="1">기본정보</button>
+        <button data-target="2">부가정보</button>
+        <button data-target="3">기술스택</button>
+        <button data-target="4">프라뱅</button>
+        <button data-target="5">만나플래닛</button>
+        <button data-target="6">푸드노트서비스</button>
+        <button data-target="7">브리지텍</button>
+        <button data-target="8">엠엘소프트</button>
+        <button data-target="9">성격</button>
+      </nav>
+
+      <!-- 스크롤 전용 컨테이너 -->
+      <div id="scroll-container">
+        <!-- 모든 섹션을 담는 영역 -->
+        <div class="panes">
+          <!-- Pane 1 : 프로필 -->
+          <section class="pane">
+            <div class="card profile-card">
+              <img
+                src="./profile.jpg"
+                alt="증명사진"
+                class="profile-photo-big"
+              />
+              <h1 class="profile-name">윤영식</h1>
+              <p class="profile-sub">Backend Developer</p>
+            </div>
+          </section>
+
+          <!-- Pane 2 : 기본정보 -->
+          <section class="pane">
+            <div class="card">
+              <strong class="card-title">기본정보</strong>
+              <dl class="info-grid">
+                <dt>이름</dt>
+                <dd>윤영식</dd>
+                <dt>한문</dt>
+                <dd>尹泳植</dd>
+                <dt>영문</dt>
+                <dd>YOON YOUNG SIK</dd>
+                <dt>생년월일</dt>
+                <dd>1989-05-15</dd>
+                <dt>주소</dt>
+                <dd>서울특별시 강서구</dd>
+                <dt>연락</dt>
+                <dd>
+                  <a class="link" href="mailto:yoon0sik2@gmail.com"
+                    >yoon0sik2@gmail.com</a
+                  ><br />
+                  <a class="link" href="mailto:yoonys0515@naver.com"
+                    >yoonys0515@naver.com</a
+                  ><br />
+                  <a class="link" href="tel:+821030064434">010-3006-4434</a>
+                </dd>
+              </dl>
+            </div>
+          </section>
+
+          <!-- Pane 3 : 부가정보 -->
+          <section class="pane">
+            <div class="card">
+              <strong class="card-title">부가정보</strong>
+              <dl class="info-grid">
+                <dt>학력</dt>
+                <dd>
+                  인천계산고등학교
+                  <div class="meta">(2005.03 ~ 2008.02)</div>
+                  <span class="with-logo">
+                    서경대학교 컴퓨터과학과
+                    <img
+                      src="./university.jpg"
+                      class="uni-logo"
+                      alt="서경대학교 로고"
+                    />
+                  </span>
+                  <div class="meta">(2008.03 ~ 2015.08)</div>
+                </dd>
+                <dt>병역</dt>
+                <dd>
+                  공군 병장 만기전역
+                  <span class="meta">(2009.10 ~ 2011.11)</span>
+                </dd>
+                <dt>자격증</dt>
+                <dd>정보처리기사 <span class="meta">(2018.05)</span></dd>
+              </dl>
+            </div>
+          </section>
+
+          <!-- Pane 4 : 기술스택 -->
+          <section class="pane">
+            <div class="card">
+              <strong class="card-title">기술스택</strong>
+
+              <!-- 아이콘 리스트 -->
+              <div class="stack-icons" aria-label="기술 스택 아이콘 목록">
+                <i class="devicon-java-plain colored" title="Java"></i>
+                <i
+                  class="devicon-spring-plain colored"
+                  title="Spring / Spring Boot"
+                ></i>
+                <i class="devicon-html5-plain colored" title="HTML5"></i>
+                <i
+                  class="devicon-javascript-plain colored"
+                  title="JavaScript"
+                ></i>
+                <i class="devicon-jquery-plain colored" title="jQuery"></i>
+                <i
+                  class="devicon-bootstrap-plain colored"
+                  title="Bootstrap"
+                ></i>
+                <i
+                  class="devicon-postgresql-plain colored"
+                  title="PostgreSQL"
+                ></i>
+                <i class="devicon-mysql-plain colored" title="MySQL"></i>
+                <i class="devicon-oracle-original colored" title="Oracle"></i>
+                <i
+                  class="devicon-microsoftsqlserver-plain colored"
+                  title="Microsoft SQL Server"
+                ></i>
+                <i class="devicon-jenkins-line colored" title="Jenkins"></i>
+                <i class="devicon-git-plain colored" title="Git"></i>
+                <i class="devicon-github-original colored" title="GitHub"></i>
+                <i class="devicon-gitlab-plain colored" title="GitLab"></i>
+                <i class="devicon-subversion-original colored" title="SVN"></i>
+              </div>
+
+              <div class="divider"></div>
+
+              <!-- 기술 상세 요약 -->
+              <dl class="info-grid skills-detail">
+                <dt>Java</dt>
+                <dd>9+년</dd>
+                <dt>Spring</dt>
+                <dd>
+                  7+년
+                  <div class="meta">Spring Boot · Spring Batch 중심</div>
+                </dd>
+                <dt>SQL</dt>
+                <dd>
+                  9+년
+                  <div class="meta">
+                    DBMS: PostgreSQL · MySQL · Oracle · MSSQL · DB2 · Tibero
+                  </div>
+                </dd>
+                <dt>JavaScript</dt>
+                <dd>6+년</dd>
+              </dl>
+            </div>
+          </section>
+
+          <!-- Pane 5 : 프라뱅 -->
+          <section class="pane">
+            <div class="card career-card">
+              <div class="career-head with-logo">
+                <img
+                  src="./prabang_logo.png"
+                  alt="프라뱅 로고"
+                  class="company-logo"
+                />
+                <div><strong class="company-name">프라뱅</strong></div>
+              </div>
+              <div class="career-body">
+                <div class="meta">(2025.03 ~ 재직중)</div>
+                <div class="meta">IT실 · 과장</div>
+                <ul class="tl-points">
+                  <li>거래소·CS 사이트 기능 개발 및 보안 대응 담당</li>
+                  <li>Java, Spring, PostgreSQL, Thymeleaf, JavaScript</li>
+                  <li>웹 보안 취약점 개선 및 ISMS 대응</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pane 6 : 만나플래닛 -->
+          <section class="pane">
+            <div class="card career-card">
+              <div class="career-head with-logo">
+                <img
+                  src="./mannaplanet_logo.png"
+                  alt="만나플래닛 로고"
+                  class="company-logo"
+                />
+                <div><strong class="company-name">만나플래닛</strong></div>
+              </div>
+              <div class="career-body">
+                <div class="meta">(2024.03 ~ 2024.10)</div>
+                <div class="meta">서버팀 · 과장</div>
+                <ul class="tl-points">
+                  <li>
+                    내부 REST API 개발 및 접근 정보 제공·연동 시험, 외부 API
+                    연동
+                  </li>
+                  <li>Java, Spring, Oracle</li>
+                  <li>배치 운영 및 장애 대응 프로세스 정비</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pane 7 : 푸드노트서비스 -->
+          <section class="pane">
+            <div class="card career-card">
+              <div class="career-head with-logo">
+                <img
+                  src="./foodnote_logo.png"
+                  alt="푸드노트서비스 로고"
+                  class="company-logo"
+                />
+                <div><strong class="company-name">푸드노트서비스</strong></div>
+              </div>
+              <div class="career-body">
+                <div class="meta">(2020.01 ~ 2023.11)</div>
+                <div class="meta">시스템개발부 · 과장</div>
+                <ul class="tl-points">
+                  <li>장부대장 서비스 백엔드 총괄 및 운영</li>
+                  <li>Java, Spring, MySQL, Selenium</li>
+                  <li>REST API 설계·개발, 크롤링 배치 운영</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pane 8 : 브리지텍 -->
+          <section class="pane">
+            <div class="card career-card">
+              <div class="career-head with-logo">
+                <img
+                  src="./bt_ci80_en01.jpg"
+                  alt="브리지텍 로고"
+                  class="company-logo"
+                />
+                <div><strong class="company-name">브리지텍</strong></div>
+              </div>
+              <div class="career-body">
+                <div class="meta">(2018.05 ~ 2019.10)</div>
+                <div class="meta">연구4팀 · 대리</div>
+                <ul class="tl-points">
+                  <li>콜센터 상담 녹취 관리 웹 콘솔 기능 개발·유지보수</li>
+                  <li>Java, Spring, JSP, ASP, Oracle, MSSQL</li>
+                  <li>성능 개선 지원</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pane 9 : 엠엘소프트 -->
+          <section class="pane">
+            <div class="card career-card">
+              <div class="career-head with-logo">
+                <img
+                  src="./MLsoft-CI-FullColor.png"
+                  alt="엠엘소프트 로고"
+                  class="company-logo"
+                />
+                <div><strong class="company-name">엠엘소프트</strong></div>
+              </div>
+              <div class="career-body">
+                <div class="meta">(2015.01 ~ 2018.01)</div>
+                <div class="meta">연구3팀 · 연구원</div>
+                <ul class="tl-points">
+                  <li>관리자 웹 콘솔 신규 개발 및 유지보수</li>
+                  <li>Java, Spring, JSP, MySQL</li>
+                  <li>
+                    고객사 기업 내 시스템 연동 및 전자결재·보안 솔루션 적용
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pane 10 : 성격의 장단점 -->
+          <section class="pane">
+            <div class="card">
+              <strong class="card-title">성격의 장단점</strong>
+              <div class="traits-combined">
+                <p class="trait-text">
+                  제 성격의 가장 큰 장점은 성실함과 책임감입니다. 주말·평일
+                  가리지 않고 매일 6~7시에 일어나는 아침형으로, 규칙적 습관 덕에
+                  하루 리듬을 안정적으로 유지합니다. 소속감과 맡은 일에 대한
+                  책임감도 남 못지않다고 자부합니다. 일을 맡으면 끝까지 해내는
+                  끈기와 신뢰로 동료·조직에 긍정적 영향을 내고자 합니다.
+                  <br />
+                  단점은 세워둔 계획·루틴의 근간이 외부 요인으로 흔들릴 때
+                  심리적으로 크게 흔들린다는 점입니다. 여기서 근간이라 한 이유는
+                  사소한 변수에 휘둘린다는 뜻이 아니라, 일정의 핵심
+                  전제·우선순위 같은 중심축이 무너질 때 영향을 받는다는 점을
+                  분명히 하기 위함입니다. 다만 10년 가까운 업무 속 반복 경험으로
+                  흔들림은 줄었고, 중심을 다시 잡는 속도는 빨라졌습니다.
+                  변화·변수를 자연스러운 과정으로 받아들이며 계획이 흔들릴 때
+                  우선순위를 신속히 재정립하는 습관을 들였습니다. 지금은 돌발
+                  상황에도 균형을 유지하며 더 유연하게 대처합니다.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+    <script>
+      // 아이콘 접근성 향상 처리
+      document.querySelectorAll(".stack-icons i[title]").forEach((el) => {
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("role", "img");
+        el.setAttribute("aria-label", el.getAttribute("title"));
+      });
+    </script>
+  </body>
+</html>
