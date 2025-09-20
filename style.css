@@ -236,20 +236,33 @@ body {
   }
 }
 
-/* 모바일 테이블 세로 정렬 */
+/* 모바일에서도 사진이 오른쪽에 유지되도록 */
 @media (max-width: 767px) {
   .info-table,
   .info-table tr,
   .info-table th,
   .info-table td {
-    display: block;
+    display: table; /* ✅ block 대신 table 유지 */
+    width: auto;
+  }
+
+  .info-table {
     width: 100%;
   }
+
   .info-table th {
     text-align: left;
+    padding: 6px;
   }
+
   .photo-cell {
+    display: table-cell; /* ✅ 사진은 항상 오른쪽 칸 */
+    vertical-align: middle;
     text-align: center;
-    margin-top: 12px;
+    width: 120px;
+  }
+
+  .profile-photo {
+    width: 100px;
   }
 }
