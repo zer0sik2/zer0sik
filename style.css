@@ -255,3 +255,52 @@ body {
     width: 80px; /* 모바일에서 사진 작게 */
   }
 }
+
+/* 기본정보 레이아웃: 왼쪽 텍스트, 오른쪽 사진 */
+.info-grid-photo {
+  display: grid;
+  grid-template-columns: 1fr auto; /* 왼쪽은 정보, 오른쪽은 사진 */
+  gap: 20px;
+  align-items: start;
+}
+
+.info-list {
+  margin: 0;
+  display: grid;
+  gap: 10px 0;
+}
+
+.info-list dt {
+  font-weight: 600;
+  color: var(--muted);
+}
+.info-list dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* 사진 */
+.photo-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.profile-photo {
+  width: 140px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  background: #fff;
+}
+
+/* 모바일에서 사진 축소 */
+@media (max-width: 480px) {
+  .profile-photo {
+    width: 90px;
+  }
+}
+@media (min-width: 1024px) {
+  .profile-photo {
+    width: 200px;
+  }
+}
