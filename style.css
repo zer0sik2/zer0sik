@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Fullpage Scroll Clean)
+   zer0sik/style.css (Fullpage + JS Scroll)
    ================================ */
 
 :root {
@@ -29,19 +29,7 @@ body {
   line-height: 1.6;
   font-size: 16px;
 
-  scroll-snap-type: y mandatory; /* ✅ 풀페이지 스냅 */
-  scroll-behavior: smooth; /* ✅ 부드러운 스크롤 */
-  overflow-y: scroll;
-}
-
-/* 스크롤바 감추기 */
-body::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow: hidden; /* ✅ 스크롤바 감추기, JS로 제어 */
 }
 
 #app {
@@ -56,7 +44,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  scroll-snap-align: start;
 }
 
 .card {
