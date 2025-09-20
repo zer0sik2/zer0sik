@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Final)
+   zer0sik/style.css (Final Adjusted)
    ================================ */
 
 :root {
@@ -8,7 +8,7 @@
   --ink: #121417;
   --muted: #6b7280;
   --orange: #f15a22;
-  --line: #eceff2;
+  --line: #eceff2; /* ✅ 회색 테두리 공통 */
 
   --radius: 16px;
   --shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
@@ -53,9 +53,9 @@ body {
   }
 
   .pane {
-    min-height: auto; /* ✅ PC에서는 자동 높이 */
-    padding: 120px 60px; /* 여백은 넉넉하게 */
-    display: block; /* flex → block으로 바꿔서 내용 자연스럽게 흐르게 */
+    min-height: auto;
+    padding: 120px 60px;
+    display: block;
   }
 }
 
@@ -74,7 +74,7 @@ body {
 @media (min-width: 1024px) {
   #app {
     scroll-snap-type: none;
-  } /* PC는 스냅 해제 */
+  }
   .pane {
     min-height: auto;
     padding: 32px;
@@ -170,14 +170,14 @@ body {
 @media (max-width: 360px) {
   #app {
     border-radius: 0;
-  } /* edge-to-edge */
+  }
 }
 
-/* ---------- 로고 기본 ---------- */
+/* ---------- 로고 ---------- */
 .uni-logo {
   width: 48px;
   height: 48px;
-  border: 1px solid #0b0c0f; /* 얇은 네이비 테두리 */
+  border: 1px solid var(--line); /* ✅ 회색 테두리 */
   border-radius: 6px;
   background: #fff;
   object-fit: contain;
@@ -186,6 +186,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+@media (min-width: 1024px) {
+  .uni-logo {
+    width: 96px;
+    height: 96px;
+  }
 }
 
 /* ---------- PC 전용 (대폭 확대) ---------- */
@@ -196,25 +202,25 @@ body {
   }
 
   .pane {
-    padding: 80px 40px; /* 섹션 여백 확장 */
+    padding: 80px 40px;
   }
 
   .card {
-    padding: 48px; /* 카드 내부 여백 넉넉하게 */
+    padding: 48px;
   }
 
   .card-title {
-    font-size: 1.8rem; /* 섹션 제목 크게 */
+    font-size: 1.8rem;
     margin-bottom: 24px;
   }
 
   .card-subtitle {
-    font-size: 1.4rem; /* 부제목 크게 */
+    font-size: 1.4rem;
     margin: 28px 0 16px;
   }
 
   .info-grid {
-    grid-template-columns: 180px 1fr; /* 라벨 폭 늘리기 */
+    grid-template-columns: 180px 1fr;
     gap: 20px 24px;
   }
   .info-grid dt {
@@ -223,28 +229,24 @@ body {
   .info-grid dd {
     font-size: 1.2rem;
   }
-
-  /* ✅ PC에서 대학 로고 확대 */
-  .uni-logo {
-    width: 96px;
-    height: 96px;
-  }
 }
 
-/* 기본정보 카드 가로 배치 */
+/* ---------- 기본정보 카드 + 증명사진 ---------- */
 .card-flex {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column; /* ✅ 모바일: 세로 정렬 */
   gap: 20px;
 }
-
-/* 텍스트 영역 */
+@media (min-width: 768px) {
+  .card-flex {
+    flex-direction: row; /* ✅ PC: 가로 정렬 */
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
 .info-box {
   flex: 1;
 }
-
-/* 사진 영역 */
 .photo-box {
   flex: 0 0 auto;
 }
@@ -256,8 +258,6 @@ body {
   object-fit: cover;
   background: #fff;
 }
-
-/* PC에서 사진 좀 더 크게 */
 @media (min-width: 1024px) {
   .profile-photo {
     width: 200px;
