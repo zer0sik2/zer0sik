@@ -29,7 +29,7 @@ body {
   line-height: 1.6;
   font-size: 16px;
 
-  overflow: hidden; /* ✅ 스크롤바 감추기, JS로 제어 */
+  overflow: hidden; /* ✅ 스크롤바 아예 차단 */
 }
 
 #app {
