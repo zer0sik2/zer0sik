@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Final - table layout)
+   zer0sik/style.css (Final - table layout, mobile photo fix)
    ================================ */
 
 :root {
@@ -17,6 +17,7 @@
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   margin: 0;
@@ -40,6 +41,7 @@ body {
   display: grid;
   gap: 18px;
 }
+
 .pane {
   min-height: 100dvh;
   display: flex;
@@ -48,10 +50,12 @@ body {
   padding: 28px 20px;
   scroll-snap-align: start;
 }
+
 #app {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
 }
+
 @media (min-width: 1024px) {
   #app {
     scroll-snap-type: none;
@@ -71,6 +75,7 @@ body {
   box-shadow: var(--shadow);
   padding: 24px;
 }
+
 .card-title {
   font-size: 1.1rem;
   font-weight: 700;
@@ -83,14 +88,17 @@ body {
   grid-template-columns: 1fr;
   gap: 10px 14px;
 }
+
 .info-grid dt {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
 .info-grid dd {
   margin: 0;
   font-weight: 600;
 }
+
 @media (min-width: 540px) {
   .info-grid {
     grid-template-columns: 120px 1fr;
@@ -106,6 +114,7 @@ body {
   margin: 0;
   padding-left: 1.2rem;
 }
+
 .list li {
   margin: 6px 0;
 }
@@ -115,6 +124,7 @@ body {
   font-weight: 700;
   text-decoration: none;
 }
+
 .link:hover {
   text-decoration: underline;
 }
@@ -135,11 +145,13 @@ body {
   background: #fff;
   object-fit: contain;
 }
+
 .with-logo {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
+
 @media (min-width: 1024px) {
   .uni-logo {
     width: 96px;
@@ -175,6 +187,7 @@ body {
   width: 100%;
   border-collapse: collapse;
 }
+
 .info-table th {
   text-align: right;
   padding: 6px 10px;
@@ -183,32 +196,47 @@ body {
   white-space: nowrap;
   vertical-align: top;
 }
+
 .info-table td {
   padding: 6px 10px;
   font-weight: 700;
 }
+
 .info-table .hanja {
   margin-left: 6px;
   color: var(--muted);
   font-size: 0.9em;
 }
+
 .photo-cell {
   text-align: center;
   vertical-align: middle;
   padding: 10px;
 }
+
 .profile-photo {
-  width: 140px;
+  width: 140px; /* 기본 */
   border-radius: 8px;
   border: 1px solid var(--line);
   object-fit: cover;
   background: #fff;
 }
+
+/* 모바일 전용: 사진 축소 */
+@media (max-width: 480px) {
+  .profile-photo {
+    width: 100px;
+  }
+}
+
+/* PC 전용: 사진 확대 */
 @media (min-width: 1024px) {
   .profile-photo {
     width: 200px;
   }
 }
+
+/* 모바일 테이블 세로 정렬 */
 @media (max-width: 767px) {
   .info-table,
   .info-table tr,
