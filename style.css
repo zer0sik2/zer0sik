@@ -1,20 +1,19 @@
 /* ================================
-   zer0sik/style.css (Final)
+   zer0sik/style.css (Final - photo right)
    ================================ */
 
 :root {
-  --page-bg: #0b0c0f; /* 전체 바탕 네이비 */
-  --card-bg: #ffffff; /* 카드 흰색 */
+  --page-bg: #0b0c0f;
+  --card-bg: #ffffff;
   --ink: #121417;
   --muted: #6b7280;
   --orange: #f15a22;
-  --line: #eceff2; /* ✅ 회색 테두리 공통 */
+  --line: #eceff2;
 
   --radius: 16px;
   --shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
 }
 
-/* ---------- Base ---------- */
 * {
   box-sizing: border-box;
 }
@@ -29,38 +28,20 @@ body {
   font-size: 16px;
 }
 
-/* ---------- Container ---------- */
 #app {
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
   border-radius: var(--radius);
   overflow: hidden;
-  background: transparent;
-  border: none;
-  box-shadow: none;
 }
 
-/* ---------- Layout ---------- */
 .panes {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 18px;
 }
-@media (min-width: 1024px) {
-  #app {
-    scroll-snap-type: none; /* PC에서는 스냅 해제 */
-  }
-
-  .pane {
-    min-height: auto;
-    padding: 120px 60px;
-    display: block;
-  }
-}
-
 .pane {
-  min-height: 100dvh; /* 모바일: 한 섹션 꽉 채움 */
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,11 +58,11 @@ body {
   }
   .pane {
     min-height: auto;
-    padding: 32px;
+    padding: 120px 60px;
+    display: block;
   }
 }
 
-/* ---------- Card ---------- */
 .card {
   width: 100%;
   background: var(--card-bg);
@@ -96,14 +77,7 @@ body {
   color: var(--orange);
   margin-bottom: 16px;
 }
-.card-subtitle {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 20px 0 10px;
-  color: var(--ink);
-}
 
-/* ---------- Info grid ---------- */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -128,7 +102,6 @@ body {
   }
 }
 
-/* ---------- List ---------- */
 .list {
   margin: 0;
   padding-left: 1.2rem;
@@ -137,7 +110,6 @@ body {
   margin: 6px 0;
 }
 
-/* ---------- Links ---------- */
 .link {
   color: var(--orange);
   font-weight: 700;
@@ -146,12 +118,7 @@ body {
 .link:hover {
   text-decoration: underline;
 }
-.link:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--orange) 40%, black);
-  outline-offset: 2px;
-}
 
-/* ---------- Footer ---------- */
 .foot {
   text-align: center;
   font-size: 0.85rem;
@@ -159,25 +126,11 @@ body {
   padding: 20px 0 30px;
 }
 
-/* ---------- Motion Pref ---------- */
-@media (prefers-reduced-motion: reduce) {
-  #app {
-    scroll-behavior: auto;
-  }
-}
-
-/* ---------- Small Devices ---------- */
-@media (max-width: 360px) {
-  #app {
-    border-radius: 0;
-  }
-}
-
-/* ---------- 로고 ---------- */
+/* 대학 로고 */
 .uni-logo {
   width: 48px;
   height: 48px;
-  border: 1px solid var(--line); /* ✅ 회색 테두리 */
+  border: 1px solid var(--line);
   border-radius: 6px;
   background: #fff;
   object-fit: contain;
@@ -194,65 +147,57 @@ body {
   }
 }
 
-/* ---------- PC 전용 (대폭 확대) ---------- */
+/* PC 전용 확대 */
 @media (min-width: 1024px) {
   body {
     font-size: 22px;
     line-height: 1.9;
   }
-
-  .pane {
-    padding: 80px 40px;
-  }
-
   .card {
     padding: 48px;
   }
-
   .card-title {
     font-size: 1.8rem;
     margin-bottom: 24px;
   }
-
-  .card-subtitle {
-    font-size: 1.4rem;
-    margin: 28px 0 16px;
-  }
-
   .info-grid {
     grid-template-columns: 180px 1fr;
     gap: 20px 24px;
   }
-  .info-grid dt {
-    font-size: 1.2rem;
-  }
+  .info-grid dt,
   .info-grid dd {
     font-size: 1.2rem;
   }
 }
 
-/* ---------- 이름 + 증명사진 ---------- */
-.with-photo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+/* 기본정보 카드 + 사진 오른쪽 */
+.card-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.with-photo .hanja {
-  margin-left: 6px;
-  color: var(--muted);
-  font-size: 0.9em;
+@media (min-width: 768px) {
+  .card-flex {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
-.name-photo {
-  width: 64px;
-  height: 64px;
+.info-box {
+  flex: 1;
+}
+.photo-box {
+  flex: 0 0 auto;
+}
+.profile-photo {
+  width: 160px;
   border-radius: 8px;
   border: 1px solid var(--line);
   object-fit: cover;
   background: #fff;
 }
 @media (min-width: 1024px) {
-  .name-photo {
-    width: 96px;
-    height: 96px;
+  .profile-photo {
+    width: 240px;
   }
 }

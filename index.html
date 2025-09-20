@@ -16,45 +16,50 @@
       <div class="panes">
         <!-- Pane 1 : 기본정보 -->
         <section class="pane">
-          <div class="card">
-            <strong class="card-title">기본정보</strong>
-            <dl class="info-grid">
-              <!-- ✅ 이름 + 한문 + 증명사진 -->
-              <dt>이름</dt>
-              <dd class="with-photo" itemprop="name">
-                윤영식
-                <span class="hanja">(尹泳植)</span>
-                <img src="./profile.jpg" alt="증명사진" class="name-photo" />
-              </dd>
+          <div class="card card-flex">
+            <div class="info-box">
+              <strong class="card-title">기본정보</strong>
+              <dl class="info-grid">
+                <dt>이름</dt>
+                <dd itemprop="name">윤영식</dd>
 
-              <dt>영문</dt>
-              <dd itemprop="alternateName">YOON YOUNG SIK</dd>
+                <dt>한문</dt>
+                <dd>尹泳植</dd>
 
-              <dt>생년월일</dt>
-              <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
+                <dt>영문</dt>
+                <dd itemprop="alternateName">YOON YOUNG SIK</dd>
 
-              <dt>주소</dt>
-              <dd itemprop="addressLocality">서울특별시 강서구</dd>
+                <dt>생년월일</dt>
+                <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
 
-              <dt>연락</dt>
-              <dd>
-                <a
-                  class="link"
-                  href="mailto:yoon0sik2@gmail.com"
-                  itemprop="email"
-                  >yoon0sik2@gmail.com</a
-                ><br />
-                <a
-                  class="link"
-                  href="mailto:yoonys0515@naver.com"
-                  itemprop="email"
-                  >yoonys0515@naver.com</a
-                ><br />
-                <a class="link" href="tel:+821030064434" itemprop="telephone"
-                  >010-3006-4434</a
-                >
-              </dd>
-            </dl>
+                <dt>주소</dt>
+                <dd itemprop="addressLocality">서울특별시 강서구</dd>
+
+                <dt>연락</dt>
+                <dd>
+                  <a
+                    class="link"
+                    href="mailto:yoon0sik2@gmail.com"
+                    itemprop="email"
+                    >yoon0sik2@gmail.com</a
+                  ><br />
+                  <a
+                    class="link"
+                    href="mailto:yoonys0515@naver.com"
+                    itemprop="email"
+                    >yoonys0515@naver.com</a
+                  ><br />
+                  <a class="link" href="tel:+821030064434" itemprop="telephone"
+                    >010-3006-4434</a
+                  >
+                </dd>
+              </dl>
+            </div>
+
+            <!-- ✅ 오른쪽에 크게 증명사진 -->
+            <div class="photo-box">
+              <img src="./profile.jpg" alt="증명사진" class="profile-photo" />
+            </div>
           </div>
         </section>
 
