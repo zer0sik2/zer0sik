@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Final - table layout, mobile photo fix)
+   zer0sik/style.css (Final - clean)
    ================================ */
 
 :root {
@@ -182,84 +182,10 @@ body {
   }
 }
 
-/* ---------- table layout for 기본정보 ---------- */
-.info-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.info-table th {
-  text-align: right;
-  padding: 6px 10px;
-  color: var(--muted);
-  font-weight: 600;
-  white-space: nowrap;
-  vertical-align: top;
-}
-
-.info-table td {
-  padding: 6px 10px;
-  font-weight: 700;
-}
-
-.info-table .hanja {
-  margin-left: 6px;
-  color: var(--muted);
-  font-size: 0.9em;
-}
-
-.photo-cell {
-  text-align: center;
-  vertical-align: middle;
-  padding: 10px;
-}
-
-.profile-photo {
-  width: 140px; /* 기본 */
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  object-fit: cover;
-  background: #fff;
-}
-
-/* 모바일 전용: 사진 축소 */
-@media (max-width: 480px) {
-  .profile-photo {
-    width: 100px;
-  }
-}
-
-/* PC 전용: 사진 확대 */
-@media (min-width: 1024px) {
-  .profile-photo {
-    width: 200px;
-  }
-}
-
-/* 모바일에서도 사진이 오른쪽에 유지되도록 */
-@media (max-width: 767px) {
-  .info-table,
-  .info-table tr,
-  .info-table th,
-  .info-table td {
-    display: table; /* ✅ block 대신 table 유지 */
-    width: auto;
-  }
-  .info-table {
-    width: 100%;
-  }
-  .photo-cell {
-    width: 100px; /* 모바일에서 사진칸 폭 고정 */
-  }
-  .profile-photo {
-    width: 80px; /* 모바일에서 사진 작게 */
-  }
-}
-
-/* 기본정보 레이아웃: 왼쪽 텍스트, 오른쪽 사진 */
+/* ---------- 기본정보 (Grid + 오른쪽 사진) ---------- */
 .info-grid-photo {
   display: grid;
-  grid-template-columns: 1fr auto; /* 왼쪽은 정보, 오른쪽은 사진 */
+  grid-template-columns: 1fr auto; /* 왼쪽 정보, 오른쪽 사진 */
   gap: 20px;
   align-items: start;
 }
@@ -279,12 +205,12 @@ body {
   font-weight: 700;
 }
 
-/* 사진 */
 .photo-box {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
+
 .profile-photo {
   width: 140px;
   border-radius: 8px;
@@ -293,7 +219,6 @@ body {
   background: #fff;
 }
 
-/* 모바일에서 사진 축소 */
 @media (max-width: 480px) {
   .profile-photo {
     width: 90px;
@@ -302,5 +227,44 @@ body {
 @media (min-width: 1024px) {
   .profile-photo {
     width: 200px;
+  }
+}
+
+/* ---------- 프로필 섹션 ---------- */
+.profile-card {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.profile-photo-big {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--orange);
+}
+
+.profile-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+
+@media (min-width: 1024px) {
+  .profile-photo-big {
+    width: 240px;
+  }
+  .profile-name {
+    font-size: 2.6rem;
+  }
+  .profile-sub {
+    font-size: 1.2rem;
   }
 }
