@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Final Adjusted)
+   zer0sik/style.css (Final)
    ================================ */
 
 :root {
@@ -231,35 +231,28 @@ body {
   }
 }
 
-/* ---------- 기본정보 카드 + 증명사진 ---------- */
-.card-flex {
-  display: flex;
-  flex-direction: column; /* ✅ 모바일: 세로 정렬 */
-  gap: 20px;
+/* ---------- 이름 + 증명사진 ---------- */
+.with-photo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
-@media (min-width: 768px) {
-  .card-flex {
-    flex-direction: row; /* ✅ PC: 가로 정렬 */
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+.with-photo .hanja {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 0.9em;
 }
-.info-box {
-  flex: 1;
-}
-.photo-box {
-  flex: 0 0 auto;
-}
-.profile-photo {
-  width: 140px;
-  height: auto;
+.name-photo {
+  width: 64px;
+  height: 64px;
   border-radius: 8px;
   border: 1px solid var(--line);
   object-fit: cover;
   background: #fff;
 }
 @media (min-width: 1024px) {
-  .profile-photo {
-    width: 200px;
+  .name-photo {
+    width: 96px;
+    height: 96px;
   }
 }

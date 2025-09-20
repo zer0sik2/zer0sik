@@ -9,7 +9,6 @@
       content="백엔드 개발자 윤영식(Zero0Sik) 포트폴리오"
     />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <!-- 스타일 시트: 프로젝트 페이지이므로 상대경로 사용 -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -17,54 +16,48 @@
       <div class="panes">
         <!-- Pane 1 : 기본정보 -->
         <section class="pane">
-          <div class="card card-flex">
-            <div class="info-box">
-              <strong class="card-title">기본정보</strong>
-              <dl class="info-grid">
-                <dt>이름</dt>
-                <dd itemprop="name">윤영식</dd>
+          <div class="card">
+            <strong class="card-title">기본정보</strong>
+            <dl class="info-grid">
+              <!-- ✅ 이름 + 한문 + 증명사진 -->
+              <dt>이름</dt>
+              <dd class="with-photo" itemprop="name">
+                윤영식
+                <span class="hanja">(尹泳植)</span>
+                <img src="./profile.jpg" alt="증명사진" class="name-photo" />
+              </dd>
 
-                <dt>한문</dt>
-                <dd>尹泳植</dd>
+              <dt>영문</dt>
+              <dd itemprop="alternateName">YOON YOUNG SIK</dd>
 
-                <dt>영문</dt>
-                <dd itemprop="alternateName">YOON YOUNG SIK</dd>
+              <dt>생년월일</dt>
+              <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
 
-                <dt>생년월일</dt>
-                <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
+              <dt>주소</dt>
+              <dd itemprop="addressLocality">서울특별시 강서구</dd>
 
-                <dt>주소</dt>
-                <dd itemprop="addressLocality">서울특별시 강서구</dd>
-
-                <dt>연락</dt>
-                <dd>
-                  <a
-                    class="link"
-                    href="mailto:yoon0sik2@gmail.com"
-                    itemprop="email"
-                    >yoon0sik2@gmail.com</a
-                  ><br />
-                  <a
-                    class="link"
-                    href="mailto:yoonys0515@naver.com"
-                    itemprop="email"
-                    >yoonys0515@naver.com</a
-                  ><br />
-                  <a class="link" href="tel:+821030064434" itemprop="telephone"
-                    >010-3006-4434</a
-                  >
-                </dd>
-              </dl>
-            </div>
-
-            <!-- ✅ 증명사진 -->
-            <div class="photo-box">
-              <img src="./profile.jpg" alt="profile" class="profile-photo" />
-            </div>
+              <dt>연락</dt>
+              <dd>
+                <a
+                  class="link"
+                  href="mailto:yoon0sik2@gmail.com"
+                  itemprop="email"
+                  >yoon0sik2@gmail.com</a
+                ><br />
+                <a
+                  class="link"
+                  href="mailto:yoonys0515@naver.com"
+                  itemprop="email"
+                  >yoonys0515@naver.com</a
+                ><br />
+                <a class="link" href="tel:+821030064434" itemprop="telephone"
+                  >010-3006-4434</a
+                >
+              </dd>
+            </dl>
           </div>
         </section>
 
-        <!-- Pane 2 : 부가정보 -->
         <!-- Pane 2 : 부가정보 -->
         <section class="pane" aria-label="부가정보 섹션">
           <div class="card">
@@ -75,8 +68,6 @@
                 인천계산고등학교<br />
                 (<time datetime="2005-03">2005.03</time> 입학 –
                 <time datetime="2008-02">2008.02</time> 졸업)<br />
-
-                <!-- ✅ 글자 뒤에 로고 배치 -->
                 <span class="with-logo">
                   서경대학교 컴퓨터과학과
                   <img
