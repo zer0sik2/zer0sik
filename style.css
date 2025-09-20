@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Final - name row with photo)
+   zer0sik/style.css (Final - table layout)
    ================================ */
 
 :root {
@@ -170,27 +170,35 @@ body {
   }
 }
 
-/* 기본정보 카드 (flex 구조는 유지) */
-.card-flex {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* ---------- table layout for 기본정보 ---------- */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
 }
-@media (min-width: 768px) {
-  .card-flex {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+.info-table th {
+  text-align: right;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: top;
 }
-.info-box {
-  flex: 1;
+.info-table td {
+  padding: 6px 10px;
+  font-weight: 700;
 }
-.photo-box {
-  flex: 0 0 auto;
+.info-table .hanja {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+.photo-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
 }
 .profile-photo {
-  width: 160px;
+  width: 140px;
   border-radius: 8px;
   border: 1px solid var(--line);
   object-fit: cover;
@@ -198,35 +206,22 @@ body {
 }
 @media (min-width: 1024px) {
   .profile-photo {
-    width: 240px;
+    width: 200px;
   }
 }
-
-/* 이름 줄은 2열 레이아웃: 왼쪽 텍스트, 오른쪽 사진 */
-.name-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 16px;
-}
-.name-text {
-  font-weight: 700;
-}
-.name-text .hanja {
-  margin-left: 6px;
-  color: var(--muted);
-  font-size: 0.9em;
-}
-.name-photo {
-  width: 120px;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  object-fit: cover;
-  background: #fff;
-}
-@media (min-width: 1024px) {
-  .name-photo {
-    width: 200px;
+@media (max-width: 767px) {
+  .info-table,
+  .info-table tr,
+  .info-table th,
+  .info-table td {
+    display: block;
+    width: 100%;
+  }
+  .info-table th {
+    text-align: left;
+  }
+  .photo-cell {
+    text-align: center;
+    margin-top: 12px;
   }
 }

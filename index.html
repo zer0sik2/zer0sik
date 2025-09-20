@@ -16,52 +16,45 @@
       <div class="panes">
         <!-- Pane 1 : 기본정보 -->
         <section class="pane">
-          <div class="card card-flex">
-            <div class="info-box">
-              <strong class="card-title">기본정보</strong>
-              <dl class="info-grid">
-                <dt>이름</dt>
-                <dd class="name-row" itemprop="name">
-                  <span class="name-text">
-                    윤영식 <span class="hanja">(尹泳植)</span>
-                  </span>
-                  <img src="./profile.jpg" alt="증명사진" class="name-photo" />
-                </dd>
-
-                <dt>영문</dt>
-                <dd itemprop="alternateName">YOON YOUNG SIK</dd>
-
-                <dt>생년월일</dt>
-                <dd itemprop="birthDate" content="1989-05-15">1989-05-15</dd>
-
-                <dt>주소</dt>
-                <dd itemprop="addressLocality">서울특별시 강서구</dd>
-
-                <dt>연락</dt>
-                <dd>
-                  <a
-                    class="link"
-                    href="mailto:yoon0sik2@gmail.com"
-                    itemprop="email"
+          <div class="card">
+            <strong class="card-title">기본정보</strong>
+            <table class="info-table">
+              <tr>
+                <th>이름</th>
+                <td>윤영식 <span class="hanja">(尹泳植)</span></td>
+                <td rowspan="5" class="photo-cell">
+                  <img
+                    src="./profile.jpg"
+                    alt="증명사진"
+                    class="profile-photo"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>영문</th>
+                <td>YOON YOUNG SIK</td>
+              </tr>
+              <tr>
+                <th>생년월일</th>
+                <td>1989-05-15</td>
+              </tr>
+              <tr>
+                <th>주소</th>
+                <td>서울특별시 강서구</td>
+              </tr>
+              <tr>
+                <th>연락</th>
+                <td>
+                  <a class="link" href="mailto:yoon0sik2@gmail.com"
                     >yoon0sik2@gmail.com</a
                   ><br />
-                  <a
-                    class="link"
-                    href="mailto:yoonys0515@naver.com"
-                    itemprop="email"
+                  <a class="link" href="mailto:yoonys0515@naver.com"
                     >yoonys0515@naver.com</a
                   ><br />
-                  <a class="link" href="tel:+821030064434" itemprop="telephone"
-                    >010-3006-4434</a
-                  >
-                </dd>
-              </dl>
-            </div>
-
-            <!-- ✅ 오른쪽에 크게 증명사진 -->
-            <div class="photo-box">
-              <img src="./profile.jpg" alt="증명사진" class="profile-photo" />
-            </div>
+                  <a class="link" href="tel:+821030064434">010-3006-4434</a>
+                </td>
+              </tr>
+            </table>
           </div>
         </section>
 
