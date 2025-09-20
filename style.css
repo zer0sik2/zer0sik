@@ -1,5 +1,5 @@
 /* ================================
-   zer0sik/style.css (Final - fullpage scroll)
+   zer0sik/style.css (Fullpage Scroll Clean)
    ================================ */
 
 :root {
@@ -21,37 +21,42 @@
 html,
 body {
   margin: 0;
-  height: 100%; /* 풀페이지 스크롤 */
+  height: 100%;
   background: var(--page-bg);
   color: var(--ink);
   font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans KR",
     "Malgun Gothic", sans-serif;
   line-height: 1.6;
   font-size: 16px;
-  scroll-behavior: smooth; /* 부드러운 스크롤 */
+
+  scroll-snap-type: y mandatory; /* ✅ 풀페이지 스냅 */
+  scroll-behavior: smooth; /* ✅ 부드러운 스크롤 */
+  overflow-y: scroll; /* ✅ body가 스크롤 */
+}
+
+/* 스크롤바 감추기 */
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 #app {
   width: 100%;
-  height: 100%;
   max-width: 980px;
   margin: 0 auto;
-  border-radius: var(--radius);
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory; /* ✅ 섹션 단위 스냅 */
-}
-
-.panes {
-  display: grid;
 }
 
 .pane {
-  height: 100vh; /* ✅ 한 섹션이 전체 화면 */
+  height: 100vh; /* ✅ 화면 하나 = 섹션 하나 */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  scroll-snap-align: start; /* ✅ 섹션 시작에 스냅 */
+  scroll-snap-align: start;
 }
 
 .card {
@@ -97,25 +102,17 @@ body {
   }
 }
 
-.list {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.list li {
-  margin: 6px 0;
-}
-
+/* Links */
 .link {
   color: var(--orange);
   font-weight: 700;
   text-decoration: none;
 }
-
 .link:hover {
   text-decoration: underline;
 }
 
+/* Footer */
 .foot {
   text-align: center;
   font-size: 0.85rem;
@@ -132,13 +129,11 @@ body {
   background: #fff;
   object-fit: contain;
 }
-
 .with-logo {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
-
 @media (min-width: 1024px) {
   .uni-logo {
     width: 96px;
@@ -174,7 +169,6 @@ body {
   text-align: center;
   padding: 40px 20px;
 }
-
 .profile-photo-big {
   width: 160px;
   height: auto;
@@ -182,20 +176,17 @@ body {
   border: 1px solid var(--line);
   margin-bottom: 16px;
 }
-
 .profile-name {
   font-size: 2rem;
   font-weight: 800;
   margin: 0;
   color: var(--orange);
 }
-
 .profile-sub {
   font-size: 1rem;
   color: var(--muted);
   margin: 6px 0 0;
 }
-
 @media (min-width: 1024px) {
   .profile-photo-big {
     width: 240px;
