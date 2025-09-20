@@ -245,24 +245,13 @@ body {
     display: table; /* ✅ block 대신 table 유지 */
     width: auto;
   }
-
   .info-table {
     width: 100%;
   }
-
-  .info-table th {
-    text-align: left;
-    padding: 6px;
-  }
-
   .photo-cell {
-    display: table-cell; /* ✅ 사진은 항상 오른쪽 칸 */
-    vertical-align: middle;
-    text-align: center;
-    width: 120px;
+    width: 100px; /* 모바일에서 사진칸 폭 고정 */
   }
-
   .profile-photo {
-    width: 100px;
+    width: 80px; /* 모바일에서 사진 작게 */
   }
 }
