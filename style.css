@@ -99,27 +99,28 @@ body {
 
 /* ---------- 대학 로고 ---------- */
 .uni-logo {
-  width: 48px;
-  height: 48px;
+  width: 32px; /* ✅ 기본 크기 줄임 */
+  height: 32px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 4px;
   background: #fff;
   object-fit: contain;
+  vertical-align: middle; /* ✅ 글자와 높이 맞춤 */
   flex-shrink: 0;
 }
 .with-logo {
-  display: flex; /* ✅ 텍스트 옆에 로고 */
+  display: inline-flex; /* ✅ 텍스트 옆에 로고 */
   align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 6px; /* ✅ 여백 줄임 */
+  margin-top: 2px; /* ✅ 불필요한 위 여백 최소화 */
 }
 /* 로고를 왼쪽에 두고 싶다면 아래 주석 해제 */
-// .with-logo { flex-direction: row-reverse; }
+/* .with-logo { flex-direction: row-reverse; } */
 
 @media (min-width: 1024px) {
   .uni-logo {
-    width: 96px;
-    height: 96px;
+    width: 64px; /* ✅ PC에서는 크게 */
+    height: 64px;
   }
 }
 
