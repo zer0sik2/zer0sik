@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let isScrolling = false;
   let offsets = [];
 
-  // 섹션 이름 정의
   const sectionNames = [
     "프로필",
     "기본정보",
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "성격의 장단점",
   ];
 
-  // 페이지 인디케이터 구성
+  // 페이지 인디케이터
   const indicator = document.createElement("div");
   indicator.className = "page-indicator";
 
@@ -58,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     li.addEventListener("click", () => {
       scrollToSection(idx);
       dropdown.classList.remove("open");
+      toggleBtn.textContent = "▼"; // 선택 후 닫히면 ▼
     });
     dropdown.appendChild(li);
   });
@@ -68,13 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // 토글 버튼 클릭 시 열고 닫기
   toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    dropdown.classList.toggle("open");
+    const isOpen = dropdown.classList.toggle("open");
+    toggleBtn.textContent = isOpen ? "▲" : "▼";
   });
 
-  // 외부 클릭 시 드롭다운 닫기
+  // 외부 클릭 시 닫기
   document.addEventListener("click", (e) => {
     if (!indicator.contains(e.target)) {
       dropdown.classList.remove("open");
+      toggleBtn.textContent = "▼";
     }
   });
 
@@ -82,14 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.max(min, Math.min(max, n));
   }
 
-  // 섹션 위치 계산
   function computeOffsets() {
     container.style.transform = "translateY(0px)";
     offsets = sections.map((sec) => sec.offsetTop);
     requestAnimationFrame(() => scrollToSection(currentIndex, true));
   }
 
-  // 인디케이터 업데이트
   function updateIndicator() {
     const name = sectionNames[currentIndex] || `섹션 ${currentIndex + 1}`;
     indicatorLabel.textContent = `${name} (${currentIndex + 1}/${
@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })`;
   }
 
-  // 스크롤 이동
   function scrollToSection(index, instant = false) {
     index = clamp(index, 0, sections.length - 1);
     if (isScrolling && !instant) return;
@@ -120,7 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentIndex = index;
     updateIndicator();
-    dropdown.classList.remove("open"); // 섹션 이동 후 드롭다운 닫기
+    dropdown.classList.remove("open");
+    toggleBtn.textContent = "▼"; // 이동 후 항상 ▼
   }
 
   // 초기화
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else scrollToSection(currentIndex - 1);
   });
 
-  // 폰트/이미지 로드 후 보정
+  // 리소스 로드 후 보정
   window.addEventListener("load", () => computeOffsets());
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => computeOffsets());
