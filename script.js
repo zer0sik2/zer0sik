@@ -120,8 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
     updateIndicator();
 
-    // 드롭다운은 닫기만, 버튼 모양은 여기서 건드리지 않음
-    dropdown.classList.remove("open");
+    // 드롭다운 닫기 + 버튼 상태 복구
+    if (dropdown.classList.contains("open")) {
+      dropdown.classList.remove("open");
+    }
+    toggleBtn.textContent = "▼";
   }
 
   // 초기화
