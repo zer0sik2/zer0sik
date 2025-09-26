@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isScrolling = false;
   let offsets = [];
 
-  // 섹션 이름 정의 (Pane 순서와 매칭)
+  // 섹션 이름 정의
   const sectionNames = [
     "프로필",
     "기본정보",
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "성격의 장단점",
   ];
 
-  // 페이지 인디케이터 + 토글 버튼 + 드롭다운 생성
+  // 페이지 인디케이터 구성
   const indicator = document.createElement("div");
   indicator.className = "page-indicator";
 
@@ -65,16 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.body.appendChild(indicator);
 
-  // 토글 버튼 클릭 시 드롭다운 열고 닫기
-  toggleBtn.addEventListener("click", () => {
+  // 토글 버튼 클릭 시 열고 닫기
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     dropdown.classList.toggle("open");
+  });
+
+  // 외부 클릭 시 드롭다운 닫기
+  document.addEventListener("click", (e) => {
+    if (!indicator.contains(e.target)) {
+      dropdown.classList.remove("open");
+    }
   });
 
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
   }
 
-  // 각 섹션 위치 계산
+  // 섹션 위치 계산
   function computeOffsets() {
     container.style.transform = "translateY(0px)";
     offsets = sections.map((sec) => sec.offsetTop);
@@ -89,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })`;
   }
 
-  // 섹션 스크롤 이동
+  // 스크롤 이동
   function scrollToSection(index, instant = false) {
     index = clamp(index, 0, sections.length - 1);
     if (isScrolling && !instant) return;
@@ -112,13 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentIndex = index;
     updateIndicator();
+    dropdown.classList.remove("open"); // 섹션 이동 후 드롭다운 닫기
   }
 
   // 초기화
   computeOffsets();
   updateIndicator();
 
-  // 입력 핸들링 (마우스 휠)
+  // 마우스 휠
   window.addEventListener(
     "wheel",
     (e) => {
@@ -129,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 
-  // 입력 핸들링 (키보드)
+  // 키보드
   window.addEventListener("keydown", (e) => {
     if (isScrolling) return;
     if (["ArrowDown", "PageDown"].includes(e.key))
@@ -140,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "End") scrollToSection(sections.length - 1);
   });
 
-  // 입력 핸들링 (터치 스와이프)
+  // 터치 스와이프
   let startY = 0;
   window.addEventListener(
     "touchstart",
@@ -156,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else scrollToSection(currentIndex - 1);
   });
 
-  // 콘텐츠/이미지/폰트 로드 후 보정
+  // 폰트/이미지 로드 후 보정
   window.addEventListener("load", () => computeOffsets());
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => computeOffsets());
@@ -168,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 동적 DOM 변경 감지
+  // DOM 변경 감지
   const mo = new MutationObserver(() => computeOffsets());
   mo.observe(container, {
     childList: true,
@@ -176,6 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
     characterData: true,
   });
 
-  // 리사이즈/방향 전환 시 보정
+  // 리사이즈
   window.addEventListener("resize", () => computeOffsets());
 });
