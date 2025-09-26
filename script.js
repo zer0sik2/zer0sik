@@ -8,7 +8,7 @@ window.addEventListener("pageshow", function (event) {
 document.addEventListener("DOMContentLoaded", () => {
   // 정적 리소스 캐시 무효화 (CSS, JS, 이미지)
   document
-    .querySelectorAll("link[rel='stylesheet'], script[src], img[src]")
+    .querySelectorAll("link[rel='stylesheet'][href], script[src], img[src]")
     .forEach((el) => {
       const url = new URL(el.href || el.src, window.location.origin);
       url.searchParams.set("v", Date.now());
