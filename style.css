@@ -223,7 +223,7 @@ body {
 }
 
 /* ---------- Page Indicator ----------
-   현재 섹션 위치를 표시하는 인디케이터 */
+   현재 섹션 위치를 표시하는 인디케이터와 드롭다운 */
 .page-indicator {
   position: fixed;
   bottom: 20px;
@@ -231,34 +231,50 @@ body {
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
   font-weight: 600;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.page-label {
   pointer-events: none;
 }
-
-/* ---------- Page Navigation ----------
-   상단에 고정된 네비게이션 버튼 */
-.page-nav {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 10000;
+.page-toggle {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0;
 }
-.page-nav button {
+.page-dropdown {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
   background: #fff;
+  color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
+  box-shadow: var(--shadow);
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  min-width: 140px;
+  z-index: 10000;
 }
-.page-nav button:hover {
+.page-dropdown.open {
+  display: block;
+}
+.page-dropdown li {
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.page-dropdown li:hover {
   background: var(--orange);
   color: #fff;
 }

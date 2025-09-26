@@ -23,11 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let isScrolling = false;
   let offsets = [];
 
-  // 페이지 인디케이터 생성
-  const indicator = document.createElement("div");
-  indicator.className = "page-indicator";
-  document.body.appendChild(indicator);
-
   // 섹션 이름 정의 (Pane 순서와 매칭)
   const sectionNames = [
     "프로필",
@@ -41,6 +36,39 @@ document.addEventListener("DOMContentLoaded", () => {
     "경력 - 엠엘소프트",
     "성격의 장단점",
   ];
+
+  // 페이지 인디케이터 + 토글 버튼 + 드롭다운 생성
+  const indicator = document.createElement("div");
+  indicator.className = "page-indicator";
+
+  const indicatorLabel = document.createElement("span");
+  indicatorLabel.className = "page-label";
+  indicator.appendChild(indicatorLabel);
+
+  const toggleBtn = document.createElement("button");
+  toggleBtn.className = "page-toggle";
+  toggleBtn.textContent = "▼";
+  indicator.appendChild(toggleBtn);
+
+  const dropdown = document.createElement("ul");
+  dropdown.className = "page-dropdown";
+  sectionNames.forEach((name, idx) => {
+    const li = document.createElement("li");
+    li.textContent = name;
+    li.addEventListener("click", () => {
+      scrollToSection(idx);
+      dropdown.classList.remove("open");
+    });
+    dropdown.appendChild(li);
+  });
+  indicator.appendChild(dropdown);
+
+  document.body.appendChild(indicator);
+
+  // 토글 버튼 클릭 시 드롭다운 열고 닫기
+  toggleBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+  });
 
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
@@ -56,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 인디케이터 업데이트
   function updateIndicator() {
     const name = sectionNames[currentIndex] || `섹션 ${currentIndex + 1}`;
-    indicator.textContent = `${name} (${currentIndex + 1} / ${
+    indicatorLabel.textContent = `${name} (${currentIndex + 1}/${
       sections.length
     })`;
   }
@@ -150,12 +178,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 리사이즈/방향 전환 시 보정
   window.addEventListener("resize", () => computeOffsets());
-
-  // 원하는 페이지로 바로 이동 (네비게이션 버튼 클릭)
-  document.querySelectorAll(".page-nav button[data-target]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const targetIndex = parseInt(btn.dataset.target, 10);
-      scrollToSection(targetIndex);
-    });
-  });
 });
