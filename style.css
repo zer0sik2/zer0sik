@@ -1,3 +1,5 @@
+/* 2026-03-17(화) 16:38 KST */
+
 :root {
   --page-bg: #0b0c0f;
   --panel-bg: #12151b;
@@ -291,6 +293,7 @@ a {
 }
 
 .highlight-grid,
+.strengths-grid,
 .work-grid,
 .contact-grid {
   display: grid;
@@ -299,6 +302,7 @@ a {
 }
 
 .highlight-card,
+.strengths-grid .card,
 .work-grid .card,
 .contact-grid .card,
 .skill-detail-grid .card,
@@ -324,7 +328,8 @@ a {
 .highlight-card h3,
 .timeline-content h3,
 .career-card h3,
-.work-grid h3 {
+.work-grid h3,
+.strengths-grid h3 {
   margin: 14px 0 10px;
   font-size: 1.2rem;
   line-height: 1.35;
@@ -336,7 +341,8 @@ a {
 .work-grid p,
 .contact-note,
 .section-head p,
-.career-meta {
+.career-meta,
+.strengths-grid p {
   margin: 0;
   color: var(--muted-strong);
 }
@@ -377,6 +383,22 @@ a {
   border: 1px solid var(--line);
 }
 
+.strengths-grid .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.strengths-grid .card .card-title {
+  margin-bottom: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.strengths-grid .card p {
+  line-height: 1.7;
+}
 
 .db-note {
   margin: 0 0 16px;
