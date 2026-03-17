@@ -32,18 +32,19 @@
     });
   }
 
+  // 변경된 핵심 로직: 화면 중앙(상하 40% 제외한 영역)에 닿는 섹션을 활성화
   const observer = new IntersectionObserver(
     (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (visible) updateUI(visible.target);
+      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+      
+      if (visibleEntries.length > 0) {
+        updateUI(visibleEntries[0].target);
+      }
     },
     {
       root: null,
-      threshold: [0.35, 0.55, 0.75],
-      rootMargin: "-20% 0px -20% 0px",
+      threshold: 0, 
+      rootMargin: "-40% 0px -40% 0px", 
     }
   );
 
