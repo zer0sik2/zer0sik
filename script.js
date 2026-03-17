@@ -1,194 +1,103 @@
-// 뒤로가기/세션 캐시 무효화
-window.addEventListener("pageshow", function (event) {
-  if (event.persisted) {
-    window.location.reload();
-  }
-});
+(() => {
+  const sections = Array.from(document.querySelectorAll(".pane[data-title]"));
+  const navLinks = Array.from(document.querySelectorAll(".gnb a"));
+  const indicator = document.querySelector(".floating-indicator");
+  const indicatorTitle = document.querySelector(".indicator-title");
+  const indicatorCount = document.querySelector(".indicator-count");
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 정적 리소스 캐시 무효화 (CSS, JS, 이미지)
-  document
-    .querySelectorAll("link[rel='stylesheet'][href], script[src], img[src]")
-    .forEach((el) => {
-      const url = new URL(el.href || el.src, window.location.origin);
-      url.searchParams.set("v", Date.now());
-      if (el.tagName === "LINK") el.href = url.toString();
-      else el.src = url.toString();
-    });
+  if (!sections.length) return;
 
-  const container = document.querySelector("#scroll-container");
-  const sections = Array.from(document.querySelectorAll(".pane"));
-
-  let currentIndex = 0;
-  let isScrolling = false;
-  let offsets = [];
-
-  const sectionNames = [
-    "프로필",
-    "기본정보",
-    "부가정보",
-    "기술스택",
-    "경력 - 프라뱅",
-    "경력 - 만나플래닛",
-    "경력 - 푸드노트서비스",
-    "경력 - 브리지텍",
-    "경력 - 엠엘소프트",
-    "성격의 장단점",
-  ];
-
-  // 페이지 인디케이터
-  const indicator = document.createElement("div");
-  indicator.className = "page-indicator";
-
-  const indicatorLabel = document.createElement("span");
-  indicatorLabel.className = "page-label";
-  indicator.appendChild(indicatorLabel);
-
-  const toggleBtn = document.createElement("button");
-  toggleBtn.className = "page-toggle";
-  toggleBtn.textContent = "▼";
-  indicator.appendChild(toggleBtn);
-
-  const dropdown = document.createElement("ul");
-  dropdown.className = "page-dropdown";
-  sectionNames.forEach((name, idx) => {
-    const li = document.createElement("li");
-    li.textContent = name;
-    li.addEventListener("click", () => {
-      scrollToSection(idx);
-      dropdown.classList.remove("open");
-      toggleBtn.textContent = "▼"; // 선택 후 닫히면 ▼
-    });
-    dropdown.appendChild(li);
-  });
-  indicator.appendChild(dropdown);
-
-  document.body.appendChild(indicator);
-
-  // 토글 버튼 클릭 시 열고 닫기
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isOpen = dropdown.classList.toggle("open");
-    toggleBtn.textContent = isOpen ? "▲" : "▼";
+  document.querySelectorAll(".stack-icons i[title]").forEach((el) => {
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", el.getAttribute("title"));
   });
 
-  // 외부 클릭 시 닫기
-  document.addEventListener("click", (e) => {
-    if (!indicator.contains(e.target)) {
-      dropdown.classList.remove("open");
-      toggleBtn.textContent = "▼";
-    }
-  });
-
-  function clamp(n, min, max) {
-    return Math.max(min, Math.min(max, n));
-  }
-
-  function computeOffsets() {
-    container.style.transform = "translateY(0px)";
-    offsets = sections.map((sec) => sec.offsetTop);
-    requestAnimationFrame(() => scrollToSection(currentIndex, true));
-  }
-
-  function updateIndicator() {
-    const name = sectionNames[currentIndex] || `섹션 ${currentIndex + 1}`;
-    indicatorLabel.textContent = `${name} (${currentIndex + 1}/${
-      sections.length
-    })`;
-  }
-
-  function scrollToSection(index, instant = false) {
-    index = clamp(index, 0, sections.length - 1);
-    if (isScrolling && !instant) return;
-
-    const targetY = -offsets[index];
-
-    if (instant) {
-      const prev = container.style.transition;
-      container.style.transition = "none";
-      container.style.transform = `translateY(${targetY}px)`;
-      container.getBoundingClientRect();
-      container.style.transition = prev || "";
-    } else {
-      isScrolling = true;
-      container.style.transform = `translateY(${targetY}px)`;
-      setTimeout(() => {
-        isScrolling = false;
-      }, 850);
-    }
-
-    currentIndex = index;
-    updateIndicator();
-
-    // 드롭다운 닫기 + 버튼 상태 복구
-    if (dropdown.classList.contains("open")) {
-      dropdown.classList.remove("open");
-    }
-    toggleBtn.textContent = "▼";
-  }
-
-  // 초기화
-  computeOffsets();
-  updateIndicator();
-
-  // 마우스 휠
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      if (isScrolling) return;
-      if (e.deltaY > 0) scrollToSection(currentIndex + 1);
-      else if (e.deltaY < 0) scrollToSection(currentIndex - 1);
-    },
-    { passive: true }
+  const sectionMap = new Map(
+    sections.map((section, index) => [section.id, { title: section.dataset.title, index }])
   );
 
-  // 키보드
-  window.addEventListener("keydown", (e) => {
-    if (isScrolling) return;
-    if (["ArrowDown", "PageDown"].includes(e.key))
-      scrollToSection(currentIndex + 1);
-    if (["ArrowUp", "PageUp"].includes(e.key))
-      scrollToSection(currentIndex - 1);
-    if (e.key === "Home") scrollToSection(0);
-    if (e.key === "End") scrollToSection(sections.length - 1);
-  });
+  function updateUI(section) {
+    const meta = sectionMap.get(section.id);
+    if (!meta) return;
 
-  // 터치 스와이프
-  let startY = 0;
-  window.addEventListener(
-    "touchstart",
-    (e) => {
-      startY = e.touches[0].clientY;
-    },
-    { passive: true }
-  );
-  window.addEventListener("touchend", (e) => {
-    const endY = e.changedTouches[0].clientY;
-    if (Math.abs(startY - endY) < 50) return;
-    if (startY > endY) scrollToSection(currentIndex + 1);
-    else scrollToSection(currentIndex - 1);
-  });
+    indicatorTitle.textContent = meta.title;
+    indicatorCount.textContent = `${meta.index + 1} / ${sections.length}`;
 
-  // 리소스 로드 후 보정
-  window.addEventListener("load", () => computeOffsets());
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => computeOffsets());
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const isActive = href === `#${section.id}`;
+      link.classList.toggle("is-active", isActive);
+      link.setAttribute("aria-current", isActive ? "page" : "false");
+    });
   }
-  document.querySelectorAll("img").forEach((img) => {
-    if (!img.complete) {
-      img.addEventListener("load", computeOffsets, { once: true });
-      img.addEventListener("error", computeOffsets, { once: true });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) updateUI(visible.target);
+    },
+    {
+      root: null,
+      threshold: [0.35, 0.55, 0.75],
+      rootMargin: "-20% 0px -20% 0px",
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  updateUI(sections[0]);
+
+  indicator.addEventListener("click", () => {
+    const currentText = indicatorTitle.textContent;
+    const currentIndex = sections.findIndex(
+      (section) => section.dataset.title === currentText
+    );
+    const nextIndex = currentIndex >= sections.length - 1 ? 0 : currentIndex + 1;
+    sections[nextIndex].scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  window.addEventListener("keydown", (event) => {
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    const activeElement = document.activeElement;
+    const isTyping =
+      activeElement &&
+      (activeElement.tagName === "INPUT" ||
+        activeElement.tagName === "TEXTAREA" ||
+        activeElement.isContentEditable);
+
+    if (!isDesktop || isTyping) return;
+
+    const currentText = indicatorTitle.textContent;
+    const currentIndex = sections.findIndex(
+      (section) => section.dataset.title === currentText
+    );
+
+    if (["ArrowDown", "PageDown"].includes(event.key)) {
+      event.preventDefault();
+      const next = Math.min(currentIndex + 1, sections.length - 1);
+      sections[next].scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    if (["ArrowUp", "PageUp"].includes(event.key)) {
+      event.preventDefault();
+      const prev = Math.max(currentIndex - 1, 0);
+      sections[prev].scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    if (event.key === "Home") {
+      event.preventDefault();
+      sections[0].scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    if (event.key === "End") {
+      event.preventDefault();
+      sections[sections.length - 1].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   });
-
-  // DOM 변경 감지
-  const mo = new MutationObserver(() => computeOffsets());
-  mo.observe(container, {
-    childList: true,
-    subtree: true,
-    characterData: true,
-  });
-
-  // 리사이즈
-  window.addEventListener("resize", () => computeOffsets());
-});
+})();
