@@ -34,6 +34,7 @@
         <nav class="gnb" aria-label="주요 메뉴">
           <a href="#highlights">Highlights</a>
           <a href="#skills">Skills</a>
+          <a href="#strengths">Strengths</a>
           <a href="#career-summary">Career</a>
           <a href="#career-detail">Details</a>
           <a href="#contact">Contact</a>
@@ -105,45 +106,45 @@
             <p class="eyebrow">Highlights</p>
             <h2>대표 성과</h2>
             <p>
-              회사명보다 먼저 보이도록, 실제로 해결한 문제와 맡았던 책임을 앞에
-              배치했습니다.
+              너무 세부적인 작업 단위보다, 어떤 성격의 문제를 주로 맡아왔는지
+              한눈에 보이도록 정리했습니다.
             </p>
           </div>
 
           <div class="highlight-grid">
             <article class="card highlight-card">
               <span class="badge">프라뱅</span>
-              <h3>개인정보처리시스템 작업 이력 재설계</h3>
+              <h3>운영 안정화 및 보안 대응</h3>
               <p>
-                관리자 작업 이력 로직을 전면 개선해 누락을 줄이고,
-                정보주체까지 식별 가능한 형태로 감사 추적성을 강화했습니다.
+                운영 웹 기능 개선과 관리자 보안 정책 정비, ISMS 대응 성격의 업무를
+                함께 맡아왔습니다.
               </p>
             </article>
 
             <article class="card highlight-card">
               <span class="badge">프라뱅</span>
-              <h3>배치/스케줄러 운영 고도화</h3>
+              <h3>배치·스케줄러 설계 및 운영</h3>
               <p>
-                지갑 스냅샷 백업, 시세·메타데이터 수집, 개인신용정보 이용 통지 등
-                운영성 높은 배치 작업을 설계·구현했습니다.
+                운영에 필요한 정기 작업을 설계하고, 예외 처리와 재처리까지 고려한
+                배치 운영 경험을 쌓았습니다.
               </p>
             </article>
 
             <article class="card highlight-card">
               <span class="badge">만나플래닛</span>
-              <h3>대출 프로세스 API End-to-End 단독 구현</h3>
+              <h3>외부 연동 API 설계·구현</h3>
               <p>
-                본인확인부터 서류 등록, 한도 조회, 대출 실행, 신청 완료까지 전
-                구간을 단독으로 설계·구현했습니다.
+                금융사 연동 프로세스처럼 단계가 긴 업무를 API로 풀어내고,
+                요청·응답 구조를 일관되게 정리해왔습니다.
               </p>
             </article>
 
             <article class="card highlight-card">
               <span class="badge">푸드노트서비스</span>
-              <h3>백엔드 리딩 및 리뷰 API 고도화</h3>
+              <h3>백엔드 리딩 및 운영 품질 개선</h3>
               <p>
-                PL로서 요구사항 정리, 코드 리뷰, 운영 이슈 대응을 주도했고,
-                리뷰 조회·답글 API를 중심으로 서비스 운영 품질을 높였습니다.
+                서비스 백엔드 리딩과 운영 이슈 대응, 리뷰 기능 개선 등 실서비스
+                운영 품질을 높이는 역할을 맡았습니다.
               </p>
             </article>
           </div>
@@ -154,7 +155,11 @@
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Skills</p>
-            <h2>기술 스택과 실무 강점</h2>
+            <h2>기술 스택</h2>
+            <p>
+              실제 사용 기술과 경험 범위를 중심으로 정리했습니다. 문제 해결 성격은
+              아래 실무 강점 섹션에서 따로 분리했습니다.
+            </p>
           </div>
 
           <div class="skills-layout">
@@ -181,21 +186,30 @@
 
             <div class="skill-detail-grid">
               <article class="card">
-                <strong class="card-title">주력 스택</strong>
+                <strong class="card-title">주력 기술</strong>
                 <ul class="check-list">
                   <li>Java 9년+</li>
-                  <li>Spring Boot 중심, Spring Batch / Quartz 실무 경험(엠엘소프트 ~ 현재)</li>
-                  <li>PostgreSQL / MySQL / Oracle / MSSQL / DB2 / Tibero 실무 경험</li>
-                  <li>JPA, QueryDSL, MyBatis 기반 데이터 처리</li>
+                  <li>Spring Boot 중심의 백엔드 개발 경험</li>
+                  <li>Spring Batch / Quartz 실무 경험(엠엘소프트 ~ 현재)</li>
+                  <li>JavaScript 기반 운영 화면 개발 경험</li>
+                </ul>
+              </article>
+
+              <article class="card">
+                <strong class="card-title">프레임워크 및 데이터 처리</strong>
+                <ul class="check-list">
+                  <li>Spring Boot, Spring Framework, Spring Security</li>
+                  <li>JPA, QueryDSL, MyBatis(iBatis)</li>
+                  <li>REST API, 배치 처리, 스케줄링</li>
+                  <li>Selenium 기반 크롤링 배치 운영 경험</li>
                 </ul>
               </article>
 
               <article class="card">
                 <strong class="card-title">DBMS 경험 분포</strong>
                 <p class="db-note">
-                  한 가지 DBMS만 다뤄온 개발자가 아니라, 프로젝트와 고객사 환경에
-                  맞춰 여러 RDBMS를 전환·적용해온 편입니다. 아래 비중은 체감 기준
-                  요약입니다.
+                  특정 DBMS 하나만 써온 것이 아니라, 프로젝트와 고객사 환경에 맞춰
+                  여러 RDBMS를 전환·적용해왔습니다. 아래 비중은 체감 기준 요약입니다.
                 </p>
                 <ul class="db-balance-list" aria-label="DBMS 경험 분포">
                   <li>
@@ -237,25 +251,62 @@
               </article>
 
               <article class="card">
-                <strong class="card-title">업무 강점</strong>
+                <strong class="card-title">협업 및 운영 도구</strong>
                 <ul class="check-list">
-                  <li>운영 서비스 기능 개선 및 장애 대응</li>
-                  <li>Spring Batch·Quartz 기반 배치·스케줄러 설계와 재처리 로직 정비</li>
-                  <li>외부 시스템 연동 API 설계 및 문서화</li>
-                  <li>DB 모델링, 쿼리 최적화, 운영성 개선</li>
-                </ul>
-              </article>
-
-              <article class="card">
-                <strong class="card-title">협업 및 운영</strong>
-                <ul class="check-list">
-                  <li>요구사항 구조화 및 개발 가이드 정리</li>
-                  <li>코드 리뷰, 신규 인력 온보딩, PL 경험</li>
-                  <li>GitHub / GitLab / Jenkins 기반 CI/CD 운영</li>
-                  <li>보안 취약점 개선 및 ISMS 대응 경험</li>
+                  <li>GitHub, GitLab, SVN</li>
+                  <li>Jenkins 기반 CI/CD 운영</li>
+                  <li>Swagger UI 기반 API 명세 정리</li>
+                  <li>Tomcat, WebLogic 등 운영 환경 대응 경험</li>
                 </ul>
               </article>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pane" id="strengths" data-title="실무 강점">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Strengths</p>
+            <h2>실무 강점</h2>
+            <p>
+              어떤 기술을 썼는지와 별개로, 실제 업무에서 주로 맡아온 문제 해결 영역을
+              따로 분리해 정리했습니다.
+            </p>
+          </div>
+
+          <div class="strengths-grid">
+            <article class="card">
+              <strong class="card-title">운영 서비스 개선</strong>
+              <p>
+                운영 중인 서비스에서 기능 개선, 장애 대응, 운영 화면 보완 같은
+                실무형 업무를 꾸준히 맡아왔습니다.
+              </p>
+            </article>
+
+            <article class="card">
+              <strong class="card-title">배치·스케줄러 운영</strong>
+              <p>
+                정기 작업 설계, 예외 처리, 재시도·재처리 기준 정비 등 운영성 높은
+                배치 업무를 경험했습니다.
+              </p>
+            </article>
+
+            <article class="card">
+              <strong class="card-title">외부 시스템 연동</strong>
+              <p>
+                외부 API 연동과 요청·응답 구조 정리, 연동 안정성 확보 성격의 업무를
+                수행해왔습니다.
+              </p>
+            </article>
+
+            <article class="card">
+              <strong class="card-title">DB 및 보안 대응</strong>
+              <p>
+                데이터 모델링, 쿼리 최적화, 개인정보 처리 구간 보안 강화, ISMS 대응
+                성격의 업무 경험이 있습니다.
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -487,30 +538,34 @@
           <div class="section-head">
             <p class="eyebrow">Work Style</p>
             <h2>일하는 방식</h2>
+            <p>
+              기술 목록이나 담당 영역이 아니라, 일을 진행하고 협업하는 습관을 중심으로
+              정리했습니다.
+            </p>
           </div>
 
           <div class="work-grid">
             <article class="card">
-              <strong class="card-title">요구사항 정리</strong>
+              <strong class="card-title">요구사항 구조화</strong>
               <p>
-                배경, 제약, 완료 기준을 먼저 정리한 뒤 구현 범위를 잡습니다.
-                화면과 API, 배치, 데이터 영향도를 함께 보는 편입니다.
+                배경, 제약, 완료 기준을 먼저 정리한 뒤 구현 범위를 잡습니다. 화면,
+                API, 배치, 데이터 영향도를 함께 보고 우선순위를 정하는 편입니다.
               </p>
             </article>
 
             <article class="card">
-              <strong class="card-title">운영 안정성</strong>
+              <strong class="card-title">운영 기준 우선</strong>
               <p>
-                예외 처리, 이력 관리, 재시도, 재처리, 롤백 가능성까지 고려해
-                운영 환경에서 버틸 수 있는 구조를 선호합니다.
+                구현 자체보다 운영 중 문제가 덜 나도록 예외 처리, 이력, 재처리,
+                검증 포인트를 먼저 챙기는 쪽에 가깝습니다.
               </p>
             </article>
 
             <article class="card">
-              <strong class="card-title">협업 방식</strong>
+              <strong class="card-title">문서화와 공유</strong>
               <p>
-                개발 가이드, 코드 리뷰, 배포 절차, 검증 포인트를 문서화해 재작업과
-                커뮤니케이션 비용을 줄이는 데 집중합니다.
+                개발 가이드, 코드 리뷰 포인트, 배포 절차, 확인 항목을 정리해 협업 시
+                재작업과 커뮤니케이션 비용을 줄이려 합니다.
               </p>
             </article>
           </div>
