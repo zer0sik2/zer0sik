@@ -6,7 +6,7 @@
     <title>윤영식 | Backend Developer Portfolio</title>
     <meta
       name="description"
-      content="백엔드 개발자 윤영식의 포트폴리오. Spring Boot, Batch, PostgreSQL, 운영 안정화, 외부 연동, 보안 대응 경험을 정리했습니다."
+      content="백엔드 개발자 윤영식의 포트폴리오. Spring Boot, Spring Batch, Quartz, PostgreSQL, MySQL, Oracle, MSSQL 등 다양한 RDBMS 기반 운영 개발, 외부 연동, 보안 대응 경험을 정리했습니다."
     />
     <meta name="theme-color" content="#0b0c0f" />
     <meta property="og:type" content="website" />
@@ -48,15 +48,17 @@
             <p class="eyebrow">Backend Developer Portfolio</p>
             <h1>윤영식</h1>
             <p class="hero-lead">
-              9년+ 경력의 백엔드 개발자입니다. Spring Boot, Batch,
-              PostgreSQL 기반의 운영 서비스 개발과 외부 연동, 정산·배치,
-              보안 대응, 운영 안정화 업무를 꾸준히 수행해왔습니다.
+              9년+ 경력의 백엔드 개발자입니다. Spring Boot 기반 운영 서비스 개발과
+              외부 연동, 정산·배치, 보안 대응, 운영 안정화 업무를 꾸준히
+              수행해왔습니다. Spring Batch와 Quartz도 엠엘소프트부터
+              현재까지 실무에서 이어서 사용해왔고, PostgreSQL, MySQL,
+              Oracle, MSSQL 등 여러 RDBMS를 프로젝트에 맞춰 다뤘습니다.
             </p>
 
             <ul class="hero-points">
-              <li>주력: Java, Spring Boot, Spring Batch, PostgreSQL</li>
-              <li>강점: 운영 서비스 개선, 배치 설계, 외부 연동, DB 최적화</li>
-              <li>경험: ISMS 대응, 관리자 보안 정책 강화, CI/CD 운영</li>
+              <li>주력: Java, Spring Boot, Spring Batch, Quartz, 운영형 백엔드 개발</li>
+              <li>DBMS: PostgreSQL · MySQL 중심, Oracle 실무 경험, MSSQL/DB2/Tibero 대응 경험</li>
+              <li>강점: 운영 서비스 개선, 배치 설계, 외부 연동, DB 최적화, ISMS 대응</li>
             </ul>
 
             <div class="cta-row">
@@ -182,9 +184,55 @@
                 <strong class="card-title">주력 스택</strong>
                 <ul class="check-list">
                   <li>Java 9년+</li>
-                  <li>Spring Boot / Spring Batch 7년+</li>
-                  <li>PostgreSQL / MySQL / Oracle 중심 SQL 실무</li>
+                  <li>Spring Boot 중심, Spring Batch / Quartz 실무 경험(엠엘소프트 ~ 현재)</li>
+                  <li>PostgreSQL / MySQL / Oracle / MSSQL / DB2 / Tibero 실무 경험</li>
                   <li>JPA, QueryDSL, MyBatis 기반 데이터 처리</li>
+                </ul>
+              </article>
+
+              <article class="card">
+                <strong class="card-title">DBMS 경험 분포</strong>
+                <p class="db-note">
+                  한 가지 DBMS만 다뤄온 개발자가 아니라, 프로젝트와 고객사 환경에
+                  맞춰 여러 RDBMS를 전환·적용해온 편입니다. 아래 비중은 체감 기준
+                  요약입니다.
+                </p>
+                <ul class="db-balance-list" aria-label="DBMS 경험 분포">
+                  <li>
+                    <div class="db-balance-head">
+                      <strong>PostgreSQL</strong>
+                      <span>3</span>
+                    </div>
+                    <div class="db-bar"><span style="width: 100%"></span></div>
+                  </li>
+                  <li>
+                    <div class="db-balance-head">
+                      <strong>MySQL</strong>
+                      <span>3</span>
+                    </div>
+                    <div class="db-bar"><span style="width: 100%"></span></div>
+                  </li>
+                  <li>
+                    <div class="db-balance-head">
+                      <strong>Oracle</strong>
+                      <span>2</span>
+                    </div>
+                    <div class="db-bar"><span style="width: 66.666%"></span></div>
+                  </li>
+                  <li>
+                    <div class="db-balance-head">
+                      <strong>MSSQL</strong>
+                      <span>1</span>
+                    </div>
+                    <div class="db-bar"><span style="width: 33.333%"></span></div>
+                  </li>
+                  <li>
+                    <div class="db-balance-head">
+                      <strong>기타 (DB2 · Tibero)</strong>
+                      <span>1</span>
+                    </div>
+                    <div class="db-bar"><span style="width: 33.333%"></span></div>
+                  </li>
                 </ul>
               </article>
 
@@ -192,7 +240,7 @@
                 <strong class="card-title">업무 강점</strong>
                 <ul class="check-list">
                   <li>운영 서비스 기능 개선 및 장애 대응</li>
-                  <li>배치·스케줄러 설계와 재처리 로직 정비</li>
+                  <li>Spring Batch·Quartz 기반 배치·스케줄러 설계와 재처리 로직 정비</li>
                   <li>외부 시스템 연동 API 설계 및 문서화</li>
                   <li>DB 모델링, 쿼리 최적화, 운영성 개선</li>
                 </ul>
@@ -258,8 +306,8 @@
               <div class="timeline-content">
                 <h3>브리지텍 · 연구4팀 · 대리</h3>
                 <p>
-                  콜센터 운영 웹 콘솔 개발, 고객사별 커스터마이징, 멀티 DBMS
-                  호환 지원
+                  콜센터 운영 웹 콘솔 개발, 고객사별 커스터마이징, 멀티 DBMS 및
+                  운영 WAS 환경 대응
                 </p>
               </div>
             </article>
@@ -269,8 +317,8 @@
               <div class="timeline-content">
                 <h3>엠엘소프트 · 연구3팀 · 연구원</h3>
                 <p>
-                  관리자 웹 콘솔 개발, 인사 데이터 연동, Quartz 스케줄러 운영,
-                  멀티 DBMS 호환 지원
+                  관리자 웹 콘솔 개발, 인사 데이터 연동, Spring Batch·Quartz 기반
+                  스케줄러 운영, 멀티 DBMS 호환 지원
                 </p>
               </div>
             </article>
@@ -339,9 +387,9 @@
                 <li>Swagger UI 기반 API 명세 및 응답 예시 문서화</li>
               </ul>
               <div class="tech-chips">
-                <span>Java</span><span>Spring Boot</span><span>Oracle</span>
-                <span>MySQL</span><span>Swagger UI</span><span>GitHub</span>
-                <span>Jenkins</span>
+                <span>Java</span><span>Spring Boot</span><span>Spring Batch</span>
+                <span>Quartz</span><span>Oracle</span><span>MySQL</span>
+                <span>Swagger UI</span><span>GitHub</span><span>Jenkins</span>
               </div>
             </article>
 
@@ -353,7 +401,7 @@
                 </div>
               </div>
               <p class="career-summary">
-                장부대장 앱과 프차 웹·앱 백엔드 리딩을 맡아 REST API 개발과
+                장부대장 앱과 프차 웹·앱 백엔드 리딩을 맡아 REST API 개발, 크롤링 배치 운영,
                 운영 개선을 수행했습니다.
               </p>
               <ul class="career-points">
@@ -362,12 +410,14 @@
                 <li>기간별 리뷰 조회 API, 사진/답글 연관 데이터 조회 개발</li>
                 <li>배달앱 정책 기반 답글 작성 가능 기간 및 상태 메시지 처리</li>
                 <li>작성자 닉네임 마스킹 등 개인정보 노출 최소화 처리</li>
+                <li>크롤링 배치 운영 및 데이터 수집 자동화 처리</li>
                 <li>예외 처리, 오류 로깅, 운영 알림 연계, 배포 운영 절차 정리</li>
               </ul>
               <div class="tech-chips">
                 <span>Java</span><span>Spring Boot</span><span>Spring Batch</span>
-                <span>Spring Security</span><span>JPA</span><span>QueryDSL</span>
-                <span>MySQL</span><span>Swagger UI</span><span>Jenkins</span>
+                <span>Quartz</span><span>Spring Security</span><span>JPA</span>
+                <span>QueryDSL</span><span>MySQL</span><span>Selenium</span>
+                <span>Swagger UI</span><span>Jenkins</span>
               </div>
               <div class="link-row">
                 <a href="https://fc.jangboo.kr/" target="_blank" rel="noopener noreferrer">Web</a>
@@ -384,19 +434,22 @@
                 </div>
               </div>
               <p class="career-summary">
-                콜센터 상담 관리용 웹 콘솔 개발과 고객사별 운영 환경 대응을
-                수행했습니다.
+                콜센터 상담 관리용 웹 콘솔 개발과 고객사별 운영 환경, WAS,
+                배치/스케줄러 대응을 수행했습니다.
               </p>
               <ul class="career-points">
                 <li>상담 녹취 조회/재생/관리 기능 개발 및 운영 화면 보완</li>
                 <li>고객사 요구사항 기반 화면/기능 커스터마이징 적용</li>
                 <li>MySQL, Oracle, MSSQL, Tibero 환경별 SQL 차이 반영</li>
                 <li>DBMS별 함수, 데이터 타입, 페이징 호환 이슈 조정 및 안정화</li>
+                <li>Tomcat, WebLogic 기반 운영 환경 대응 및 배치/스케줄러 운영 지원</li>
               </ul>
               <div class="tech-chips">
                 <span>Java</span><span>JavaScript</span><span>Spring Framework</span>
-                <span>MyBatis</span><span>JSP</span><span>jQuery</span>
-                <span>Oracle</span><span>MSSQL</span><span>Tibero</span>
+                <span>Spring Batch</span><span>Quartz</span><span>MyBatis</span>
+                <span>JSP</span><span>jQuery</span><span>Tomcat</span>
+                <span>WebLogic</span><span>Oracle</span><span>MSSQL</span>
+                <span>Tibero</span>
               </div>
             </article>
 
@@ -408,20 +461,21 @@
                 </div>
               </div>
               <p class="career-summary">
-                Tgate 관리자 웹 콘솔 개발과 고객사 인사 데이터 연동 기능을
-                담당했습니다.
+                Tgate 관리자 웹 콘솔 개발과 고객사 인사 데이터 연동, 배치/스케줄러
+                운영을 담당했습니다.
               </p>
               <ul class="career-points">
                 <li>관리자 기능 개선 및 고객사 요구사항 기반 기능 반영</li>
                 <li>파일, DB, AD(LDAP) 기반 사용자 데이터 수집 연동 개발</li>
-                <li>Quartz 스케줄러 운영 및 고객 요청에 따른 크론 조정</li>
+                <li>Spring Batch 및 Quartz 스케줄러 운영, 고객 요청에 따른 크론 조정</li>
                 <li>재직/퇴직/휴직 등 인사 상태 반영 및 운영 이슈 대응</li>
                 <li>Oracle, MySQL, PostgreSQL, DB2, Tibero 멀티 DB 지원</li>
               </ul>
               <div class="tech-chips">
                 <span>Java</span><span>JavaScript</span><span>Spring Framework</span>
-                <span>MyBatis</span><span>Quartz</span><span>JSP</span>
-                <span>ExtJS</span><span>Bootstrap</span><span>Tomcat</span>
+                <span>Spring Batch</span><span>Quartz</span><span>MyBatis</span>
+                <span>JSP</span><span>ExtJS</span><span>Bootstrap</span>
+                <span>Tomcat</span>
               </div>
             </article>
           </div>
