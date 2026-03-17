@@ -618,6 +618,7 @@ a {
   .hero-grid,
   .skills-layout,
   .highlight-grid,
+  .strengths-grid,
   .work-grid,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -645,11 +646,11 @@ a {
 @media (max-width: 767px) {
   .pane {
     min-height: auto;
-    padding: 36px 16px;
+    padding: 44px 20px;
   }
 
   .hero-pane {
-    padding-top: 32px;
+    padding-top: 40px;
   }
 
   .topbar {
@@ -675,6 +676,7 @@ a {
   }
 
   .highlight-card,
+  .strengths-grid .card,
   .work-grid .card,
   .contact-grid .card,
   .skill-detail-grid .card,
@@ -682,12 +684,17 @@ a {
   .career-card,
   .skill-icons-card,
   .hero-card {
-    padding: 20px;
+    padding: 24px;
   }
 
   .info-grid.compact {
     grid-template-columns: 88px 1fr;
     gap: 10px 12px;
+  }
+
+  .topbar-inner {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
