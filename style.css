@@ -1,5 +1,3 @@
-/* 2026-03-17(화) 16:38 KST */
-
 :root {
   --page-bg: #0b0c0f;
   --panel-bg: #12151b;
@@ -293,7 +291,6 @@ a {
 }
 
 .highlight-grid,
-.strengths-grid,
 .work-grid,
 .contact-grid {
   display: grid;
@@ -302,7 +299,6 @@ a {
 }
 
 .highlight-card,
-.strengths-grid .card,
 .work-grid .card,
 .contact-grid .card,
 .skill-detail-grid .card,
@@ -325,11 +321,25 @@ a {
   font-weight: 800;
 }
 
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge-link {
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.badge-link:hover {
+  transform: translateY(-1px);
+}
+
 .highlight-card h3,
 .timeline-content h3,
 .career-card h3,
-.work-grid h3,
-.strengths-grid h3 {
+.work-grid h3 {
   margin: 14px 0 10px;
   font-size: 1.2rem;
   line-height: 1.35;
@@ -341,8 +351,7 @@ a {
 .work-grid p,
 .contact-note,
 .section-head p,
-.career-meta,
-.strengths-grid p {
+.career-meta {
   margin: 0;
   color: var(--muted-strong);
 }
@@ -381,69 +390,6 @@ a {
   border-radius: 16px;
   background: var(--card-soft);
   border: 1px solid var(--line);
-}
-
-.strengths-grid .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 12px;
-}
-
-.strengths-grid .card .card-title {
-  margin-bottom: 0;
-  font-size: 1.08rem;
-  line-height: 1.35;
-}
-
-.strengths-grid .card p {
-  line-height: 1.7;
-}
-
-.db-note {
-  margin: 0 0 16px;
-  color: var(--muted-strong);
-}
-
-.db-balance-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 14px;
-}
-
-.db-balance-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-
-.db-balance-head strong {
-  font-size: 0.96rem;
-}
-
-.db-balance-head span {
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 800;
-}
-
-.db-bar {
-  height: 10px;
-  border-radius: 999px;
-  background: var(--card-soft);
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-
-.db-bar span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(241, 90, 34, 0.88), rgba(241, 90, 34, 0.58));
 }
 
 .check-list,
@@ -506,6 +452,10 @@ a {
 .career-list {
   display: grid;
   gap: 20px;
+}
+
+.career-card {
+  scroll-margin-top: calc(var(--topbar-h) + 20px);
 }
 
 .career-top {
@@ -640,7 +590,6 @@ a {
   .hero-grid,
   .skills-layout,
   .highlight-grid,
-  .strengths-grid,
   .work-grid,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -698,7 +647,6 @@ a {
   }
 
   .highlight-card,
-  .strengths-grid .card,
   .work-grid .card,
   .contact-grid .card,
   .skill-detail-grid .card,
