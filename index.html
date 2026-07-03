@@ -6,7 +6,7 @@
     <title>윤영식 | Backend Developer Portfolio</title>
     <meta
       name="description"
-      content="백엔드 개발자 윤영식의 포트폴리오. Spring Boot, Spring Batch, Quartz, PostgreSQL, MySQL, Oracle, MSSQL 등 다양한 RDBMS 기반 운영 개발, 외부 연동, 보안 대응 경험을 정리했습니다."
+      content="백엔드 개발자 윤영식의 포트폴리오. Spring Boot, Spring Batch, Quartz, PostgreSQL, Redis, MySQL, Oracle, MSSQL 등 다양한 데이터 처리 및 운영 개발, 외부 연동, 보안 대응 경험을 정리했습니다."
     />
     <meta name="theme-color" content="#0b0c0f" />
     <meta property="og:type" content="website" />
@@ -108,11 +108,11 @@
           <div class="highlight-grid">
             <article class="card highlight-card">
               <a class="badge badge-link" href="#career-pravang">프라뱅</a>
-              <h3>보안 통제·KYC 운영·배치 자동화</h3>
+              <h3>보안 통제·인증 흐름·운영 배치 고도화</h3>
               <p>
                 웹 취약점 및 ISMS 지적사항 대응을 전담하며, 관리자 계정 보안과 감사 추적성,
-                KYC 인증관리, 회원탈퇴 운영 프로세스, 본인인증 상태 기반 접근 제어,
-                개인신용정보 이용 통지 및 지갑·시세 배치 자동화까지 운영 보안 체계를
+                KYC 인증관리, 회원탈퇴 운영 프로세스, 본인인증 결과 임시 저장·검증 흐름,
+                운영 데이터 스냅샷 및 외부 데이터 수집 배치까지 운영 안정성과 보안 통제를
                 함께 고도화했습니다.
               </p>
             </article>
@@ -171,6 +171,7 @@
                 <i class="devicon-jquery-plain colored" title="jQuery"></i>
                 <i class="devicon-bootstrap-plain colored" title="Bootstrap"></i>
                 <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
+                <i class="devicon-redis-plain colored" title="Redis"></i>
                 <i class="devicon-mysql-plain colored" title="MySQL"></i>
                 <i class="devicon-oracle-original colored" title="Oracle"></i>
                 <i class="devicon-microsoftsqlserver-plain colored" title="Microsoft SQL Server"></i>
@@ -190,6 +191,7 @@
                   <li>Spring Batch, Quartz</li>
                   <li>JPA, QueryDSL, MyBatis(iBatis)</li>
                   <li>REST API, 배치 처리, 스케줄링</li>
+                  <li>Redis 기반 TTL 임시 저장·조회 경험</li>
                   <li>공통 응답/예외 처리 구조 설계</li>
                   <li>파일 업로드/다운로드, CSV·Excel Export 처리</li>
                   <li>환경별 설정 분리 및 민감정보 외부화</li>
@@ -287,8 +289,8 @@
                 <h3>프라뱅 · IT실 · 과장</h3>
                 <p>
                   거래소 및 운영 웹 개발, KYC·회원탈퇴 등 고객지원 운영 기능 고도화,
-                  관리자 보안·감사 추적성 개선, 본인인증/KYC 기반 접근 제어,
-                  지갑·시세·개인신용정보 통지 배치 자동화
+                  본인인증 결과 임시 저장·검증 흐름 보완, 관리자 보안·감사 추적성 개선,
+                  운영 데이터 스냅샷 및 외부 데이터 수집 배치 자동화
                 </p>
               </div>
             </article>
@@ -359,24 +361,30 @@
               <p class="career-summary">
                 거래소 웹 및 운영 웹 기능 개발과 함께, 웹 취약점 조치와 ISMS 대응을 전담했으며
                 KYC 인증관리, 회원탈퇴 운영 프로세스, 관리자 보안, 감사 추적성,
-                본인인증 기반 접근 제어, 지갑·시세·통지 배치 자동화를 함께 고도화했습니다.
+                본인인증 기반 검증 흐름, 운영 데이터 스냅샷 및 외부 데이터 수집 배치 자동화를
+                함께 고도화했습니다.
               </p>
               <ul class="career-points">
                 <li>거래소 웹 및 고객지원/관리자 기능 개발 및 유지보수</li>
                 <li>KYC 인증관리 목록·상세, 승인·반려, 재이행·긴급재이행 등 상태 기반 운영 기능 개선</li>
                 <li>회원탈퇴 요청·승인·반려, 탈퇴회원 현황, 처리 사유 및 문자 안내 등 고객지원 운영 프로세스 정비</li>
+                <li>본인인증 요청·결과 데이터의 임시 저장 및 인증 완료 후 사용자 상태 검증 흐름 보완</li>
+                <li>Redis를 활용한 TTL 기반 인증 보조 데이터 저장·조회 경험</li>
                 <li>ISMS 심사 및 웹 보안 취약점 지적사항에 대한 전담 조치 수행</li>
                 <li>관리자 계정 보안 강화, 비밀번호 정책 적용, 마스킹 처리, 요청 방식 개선 등 운영 보안 통제 강화</li>
                 <li>개인정보처리시스템 작업·변경·접속·다운로드 이력 적재 범위 확대를 통한 감사 추적성 개선</li>
                 <li>본인인증/KYC 상태 기반 거래·지갑 접근 제어 및 사용자 안내 흐름 보완</li>
-                <li>사용자 지갑 스냅샷 백업, 시세·메타데이터 수집, 개인신용정보 이용 통지 등 운영 배치 자동화 및 스케줄러 안정화</li>
+                <li>주요 운영 데이터의 정기 스냅샷성 백업 및 수동/스케줄 실행 구분 로직 구성</li>
+                <li>외부 데이터 수집·가공·저장 배치 개발 및 운영 기준 데이터 자동 갱신</li>
+                <li>개인신용정보 이용·제공 내역 통지 대상 선정, 문서 생성 및 발송 자동화</li>
                 <li>배치 실행 상태, 실패 이력, 재처리 가능성을 고려한 운영 기준 정리</li>
                 <li>PostgreSQL 데이터 모델링 및 쿼리 최적화, Jira 기반 이슈 관리, GitLab / Jenkins CI/CD 운영</li>
               </ul>
               <div class="tech-chips">
                 <span>Java</span><span>Spring Boot</span><span>Spring Batch</span>
-                <span>Quartz</span><span>PostgreSQL</span><span>Thymeleaf</span>
-                <span>Swagger UI</span><span>Jira</span><span>GitLab</span><span>Jenkins</span>
+                <span>Quartz</span><span>PostgreSQL</span><span>Redis</span>
+                <span>Thymeleaf</span><span>Swagger UI</span><span>Jira</span>
+                <span>GitLab</span><span>Jenkins</span>
               </div>
               <div class="link-row">
                 <a href="https://www.pravang.com/" target="_blank" rel="noopener noreferrer">Web</a>
@@ -554,6 +562,7 @@
                 <li>Spring Boot / Spring Batch / Quartz</li>
                 <li>RDBMS 모델링 및 쿼리 최적화</li>
                 <li>외부 연동 API 설계</li>
+                <li>인증 흐름 보완 및 Redis 기반 임시 저장</li>
                 <li>보안 대응 및 운영 안정화</li>
               </ul>
             </article>
